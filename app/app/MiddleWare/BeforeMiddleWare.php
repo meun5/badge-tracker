@@ -23,36 +23,15 @@ class BeforeMiddleWare extends Middleware
 
         $currentUrl = $this->app->request->getPathInfo();
 
-        if (strpos($currentUrl, '/u/') !== false) {
-            $currentUrl = '/u/';
-        }
-
-        if (strpos($currentUrl, '/admin') !== false) {
-            $currentUrl = '/admin/';
-        }
-
-        if (strpos($currentUrl, '/billing') !== false) {
-            $currentUrl = '/billing/';
-        }
-
-        if (strpos($currentUrl, '/manage') !== false) {
-            $currentUrl = '/manage/';
-        }
-
-        if ($this->app->auth == null) {
-            $control_identifier = null;
-        } else {
-            $control_identifier = $this->app->auth->permissions->identifier;
-        }
-
         $this->app->view()->appendData([
             'auth' => $this->app->auth,
             'baseUrl' => $this->app->config->get('app.url'),
             'currentUrl' => $currentUrl,
-            'control_identifier' => $control_identifier,
-            'app_version' => $this->app->config->get('app.version'),
-            'app_name' => $this->app->config->get('app.name'),
-            'app_author' => $this->app->config->get('app.author'),
+            'app' => [
+                'version' => $this->app->config->get('app.version'),
+                'name' => $this->app->config->get('app.name'),
+                'author' => $this->app->config->get('app.author'),
+            ],         
         ]);
     }
 

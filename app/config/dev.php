@@ -2,9 +2,9 @@
 
 return [
     'app'   => [
-        'url'   => 'http://localhost/scout/',
+        'url'   => 'http://localhost/scouts/',
         'name'   => 'Merit-Tracker',
-        'version'   => '0.0.1.0',
+        'version'   => '0.0.0.1',
         'author'   => 'Alex Young',
         'hash'  => [
             'algo'  => PASSWORD_BCRYPT,
@@ -16,12 +16,12 @@ return [
 
     'db'    => [
         'driver'    => 'mysql',
-        'host'      => 'sql.example.org',
+        'host'      => 'localhost',
         'name'      => 'data-name',
-        'username'  => 'user',
+        'username'  => 'meun5',
         'password'  => 'password',
         'charset'   => 'utf8',
-        'collation'     => 'utf8_unicode_ci',
+        'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
     ],
 

@@ -13,9 +13,7 @@ class CsrfMiddleWare extends Middleware
     {
         $this->key = $this->app->config->get('csrf.key');
 
-        if ($this->app->request->getPathInfo() !== $this->app->config->get('stripe.webhook')) {
-            $this->app->hook('slim.before', [$this, 'check']);
-        }
+        $this->app->hook('slim.before', [$this, 'check']);
 
         $this->next->call();
     }
