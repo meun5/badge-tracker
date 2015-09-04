@@ -1,4 +1,16 @@
-# badge-tracker1
-A small meritbadge tracking system written in PHP
+# Merit Badge Tracker
+A small merit badge tracking system written in PHP and Twig
 
-This was originally written from Troop43 In Urbandale
+This was originally written for Troop43 in Urbandale, Iowa
+
+Installation
+-----------
+
+1. Clone the repository.  
+2. Download composer for your system: [link](https://getcomposer.org/download/).  
+3. Install the dependencies by running `php composer.phar install` or if composer is installed globally `composer install`  
+4. Change the mode to the corresponding use:
+    1. `dev` for a development environment.  
+    2. `production` for a production environment.  
+5. Edit the config files to your system's details.
+6. And... Your Done. Visit the url and it "should" work.  
