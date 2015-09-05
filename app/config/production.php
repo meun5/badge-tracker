@@ -4,7 +4,7 @@ return [
     'app'   => [
         'url'   => 'http://team4646.org',
         'name'   => 'Merit-Tracker',
-        'version'   => '0.0.1.0',
+        'version'   => '0.0.0.1',
         'author'   => 'Alex Young',
         'hash'  => [
             'algo'  => PASSWORD_BCRYPT,
@@ -21,7 +21,7 @@ return [
         'username'  => 'user',
         'password'  => 'password',
         'charset'   => 'utf8',
-        'collation'     => 'utf8_unicode_ci',
+        'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
     ],
 

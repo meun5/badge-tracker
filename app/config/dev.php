@@ -2,7 +2,7 @@
 
 return [
     'app'   => [
-        'url'   => 'http://localhost/scouts/',
+        'url'   => 'http://localhost/scout-merit/',
         'name'   => 'Merit-Tracker',
         'version'   => '0.0.0.1',
         'author'   => 'Alex Young',

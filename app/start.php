@@ -9,6 +9,8 @@ use Noodlehaus\Config;
 use RandomLib\Factory as RandomLib;
 
 use app\Helpers\Hash;
+use app\User\User;
+use app\validation\Validator;
 
 use app\MiddleWare\BeforeMiddleWare;
 use app\MiddleWare\CsrfMiddleWare;
