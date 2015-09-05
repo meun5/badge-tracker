@@ -21,12 +21,12 @@ class BeforeMiddleWare extends Middleware
 
         $this->checkRememberMe();
 
-        $currentUrl = $this->app->request->getPathInfo();
-
         $this->app->view()->appendData([
             'auth' => $this->app->auth,
-            'baseUrl' => $this->app->config->get('app.url'),
-            'currentUrl' => $currentUrl,
+            'url'  => [
+                'base'      => $this->app->config->get('app.url'),
+                'current'   => $this->app->request->getPathInfo(),
+            ],
             'app' => [
                 'version' => $this->app->config->get('app.version'),
                 'name' => $this->app->config->get('app.name'),

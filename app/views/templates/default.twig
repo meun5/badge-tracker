@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="{{ baseUrl }}/public/css/cover.css" rel="stylesheet">
+    <link href="{{ url.base }}/public/css/cover.css" rel="stylesheet">
 
     {% block styles %}{% endblock %}
 
@@ -34,7 +34,7 @@
           
             {% block content %}{% endblock %}
 
-          {% include 'templates/footer.twig' %}
+            {% include 'templates/footer.twig' %}
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ baseUrl }}/public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{ url.base }}/public/js/ie10-viewport-bug-workaround.js"></script>
 
     {% block scripts %}{% endblock %}
   </body>

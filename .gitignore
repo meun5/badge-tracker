@@ -18,9 +18,6 @@ $RECYCLE.BIN/
 vendor
 composer.lock
 
-# Config Files
-app/config/*.php
-
 # Windows shortcuts
 *.lnk
 

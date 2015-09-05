@@ -1,11 +1,11 @@
 <div class="masthead clearfix">
   <div class="inner">
-    <h3 class="masthead-brand">Troop 43</h3>
+    <h3 class="masthead-brand"><a href="{{ url.base }}/public" class="no-dec">Troop 43</a></h3>
     <nav>
       <ul class="nav masthead-nav">
-        <li class="active"><a href="#">Search</a></li>
-        <li><a href="#">Counslers</a></li>
-        <li><a href="#">Login</a></li>
+        <li {% if url.current == '/search' %}class="active" {% endif %}><a href="#">Search</a></li>
+        <li {% if url.current == '/counslers' %}class="active" {% endif %}><a href="#">Counslers</a></li>
+        <li {% if url.current == '/login' %}class="active" {% endif %}><a href="{{ urlFor('auth.login') }}">Login</a></li>
       </ul>
     </nav>
   </div>
