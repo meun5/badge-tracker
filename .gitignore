@@ -14,9 +14,12 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-#Composer Files
+# Composer Install Files
 vendor
 composer.lock
+
+# Config Files
+app/config/*.php
 
 # Windows shortcuts
 *.lnk
