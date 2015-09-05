@@ -2,7 +2,7 @@
 
 return [
     'app'   => [
-        'url'   => 'http://localhost/scout-merit/',
+        'url'   => 'http://localhost/',
         'name'   => 'Merit-Tracker',
         'version'   => '0.0.0.1',
         'author'   => 'Alex Young',
@@ -17,7 +17,7 @@ return [
     'db'    => [
         'driver'    => 'mysql',
         'host'      => 'localhost',
-        'name'      => 'data-name',
+        'name'      => 'database-name',
         'username'  => 'meun5',
         'password'  => 'password',
         'charset'   => 'utf8',
@@ -33,8 +33,8 @@ return [
     'mail'  => [
         'smtp_auth'     => true,
         'smtp_secure'   => 'tls',
-        'host'          => 'smtp.troop43.org',
-        'username'      => 'username@troop43.prg',
+        'host'          => 'smtp.example.org',
+        'username'      => 'username@example.org',
         'password'      => 'password',
         'port'          => 587,
         'html'          => true,
