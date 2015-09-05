@@ -5,7 +5,9 @@
       <ul class="nav masthead-nav">
         <li {% if url.current == '/search' %}class="active" {% endif %}><a href="#">Search</a></li>
         <li {% if url.current == '/counslers' %}class="active" {% endif %}><a href="#">Counslers</a></li>
-        <li {% if url.current == '/login' %}class="active" {% endif %}><a href="{{ urlFor('auth.login') }}">Login</a></li>
+        {% if auth %}<li><a href="{{ urlFor('auth.logout') }}">Logout</a></li>
+            {% else %}<li {% if url.current == '/login' %}class="active" {% endif %}><a href="{{ urlFor('auth.login') }}">Login</a></li>
+                {% endif %}
       </ul>
     </nav>
   </div>
