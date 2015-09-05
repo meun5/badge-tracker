@@ -2,7 +2,7 @@
 
 return [
     'app'   => [
-        'url'   => 'http://team4646.org',
+        'url'   => 'http://example.org',
         'name'   => 'Merit-Tracker',
         'version'   => '0.0.0.1',
         'author'   => 'Alex Young',
@@ -17,7 +17,7 @@ return [
     'db'    => [
         'driver'    => 'mysql',
         'host'      => 'sql.example.org',
-        'name'      => 'data-name',
+        'name'      => 'database-name',
         'username'  => 'user',
         'password'  => 'password',
         'charset'   => 'utf8',
@@ -33,8 +33,8 @@ return [
     'mail'  => [
         'smtp_auth'     => true,
         'smtp_secure'   => 'tls',
-        'host'          => 'smtp.troop43.org',
-        'username'      => 'username@troop43.org',
+        'host'          => 'smtp.example.org',
+        'username'      => 'username@example.org',
         'password'      => 'password',
         'port'          => 587,
         'html'          => true,
