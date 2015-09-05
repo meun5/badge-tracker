@@ -19,7 +19,7 @@ vendor
 composer.lock
 
 # Config Files
-app/config/*.php
+app\config\*.php
 
 # Windows shortcuts
 *.lnk
