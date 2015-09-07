@@ -48,10 +48,25 @@ $app->post('/login', $guest(), function () use ($app) {
                 );
             }
 
+            if ($app->request->isAjax()) {
+                echo json_encode([
+                    'success' => true,
+                    'url' => $app->urlFor('home'),
+                ]);
+                return;
+            }
             return $app->response->redirect($app->urlFor('home'));
 
         } else {
-            $app->flash('global', 'Invalid Credentials');
+            if ($app->request->isAjax()) {
+
+                echo json_encode([
+                    'success'   => false,
+                    'errors'    => $v->errors(),
+                    'url'       => $app->urlFor('auth.login'),
+                ]);
+                return;
+            }
             return $app->response->redirect($app->urlFor('auth.login'));
         }
     }

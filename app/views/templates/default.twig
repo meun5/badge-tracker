@@ -16,6 +16,55 @@
     <!-- Custom styles for this template -->
     <link href="{{ url.base }}/public/css/cover.css" rel="stylesheet">
 
+    {% if auth == null and url.current != '/login' %}
+    <style type="text/css">
+        .modal-header, h4, .close {
+            background-color: #5cb85c;
+            color: white !important;
+            text-align: center;
+            font-size: 30px;
+        }
+        .modal-footer {
+            background-color: #f9f9f9;
+        }
+        .form-signin {
+            margin: 0 auto;
+            max-width: 330px;
+            padding: 15px;
+        }
+        .form-signin .form-signin-heading, .form-signin .checkbox {
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        .form-signin .checkbox {
+            font-weight: normal;
+        }
+        .form-signin .form-control {
+            box-sizing: border-box;
+            font-size: 16px;
+            height: auto;
+            padding: 10px;
+            position: relative;
+        }
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+        .form-signin input[type="text"] {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            margin-bottom: -1px;
+        }
+        .form-signin input[type="password"] {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 0px;
+        }
+    </style>
+    {% endif %}
+
     {% block styles %}{% endblock %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,6 +95,21 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ url.base }}/public/js/ie10-viewport-bug-workaround.js"></script>
+
+    {% if auth == null and url.current != '/login' %}
+    <script src="{{ url.base }}/public/js/ajax-login.js"></script>
+
+    <!-- Login Modal Trigger -->
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#modalContainer").removeAttr('style');
+        $(".login").click(function (e) {
+            e.preventDefault();
+            $("#loginModal").modal();
+        });
+    });
+    </script>
+    {% endif %}
 
     {% block scripts %}{% endblock %}
   </body>
