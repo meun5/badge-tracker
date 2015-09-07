@@ -1,4 +1,5 @@
 <?php
+
 return [
     'app'   => [
         'url'   => 'http://localhost/',
@@ -11,6 +12,7 @@ return [
         ],
         'webmaster' => 'clamy4@msn.com',
     ],
+
     'db'    => [
         'driver'    => 'mysql',
         'host'      => 'localhost',
@@ -21,10 +23,12 @@ return [
         'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
     ],
+
     'auth'  => [
         'session'   => 'usr_id',
         'remember'  => 'usr_rem',
     ],
+
     'mail'  => [
         'smtp_auth'     => true,
         'smtp_secure'   => 'tls',
@@ -34,6 +38,7 @@ return [
         'port'          => 587,
         'html'          => true,
     ],
+    
     'twig'  => [
         'debug'     => true,
     ],
