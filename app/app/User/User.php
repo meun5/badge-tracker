@@ -70,6 +70,6 @@ class User extends Eloquent
 
     public function permissions()
     {
-        return $this->hasOne('app\User\UserPermission', 'usr_id');
+        return $this->hasOne('app\User\UserPermission', 'user_id');
     }
 }

@@ -9,7 +9,10 @@ class UserPermission extends Eloquent
     protected $table = 'tr_permissions';
 
     protected $fillable = [
-        'user_id',
         'is_admin',
+    ];
+
+    public static $defaults = [
+        'is_admin' => false,
     ];
 }

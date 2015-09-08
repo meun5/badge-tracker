@@ -9,8 +9,10 @@ use Noodlehaus\Config;
 use RandomLib\Factory as RandomLib;
 
 use app\Helpers\Hash;
+use app\Validation\Validator;
+
 use app\User\User;
-use app\validation\Validator;
+use app\Scouts\Scouts;
 
 use app\MiddleWare\BeforeMiddleWare;
 use app\MiddleWare\CsrfMiddleWare;
@@ -32,7 +34,7 @@ $app->add(new BeforeMiddleWare);
 $app->add(new CsrfMiddleWare);
 
 $app->configureMode($app->config('mode'), function () use ($app) {
-        $app->config = Config::load(INC_ROOT . "/app/config/{$app->mode}.php");
+    $app->config = Config::load(INC_ROOT . "/app/config/{$app->mode}.php");
 });
 
 require 'database.php';
@@ -42,6 +44,10 @@ require 'routes.php';
 
 $app->container->set('user', function () {
     return new User;
+});
+
+$app->container->set('scouts', function () {
+    return new Scouts;
 });
 
 $app->container->singleton('hash', function () use ($app) {
