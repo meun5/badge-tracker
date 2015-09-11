@@ -13,6 +13,7 @@ use app\Validation\Validator;
 
 use app\User\User;
 use app\Scouts\Scouts;
+use app\Metadata\Metadata;
 
 use app\MiddleWare\BeforeMiddleWare;
 use app\MiddleWare\CsrfMiddleWare;
@@ -48,6 +49,10 @@ $app->container->set('user', function () {
 
 $app->container->set('scouts', function () {
     return new Scouts;
+});
+
+$app->container->set('metadata', function () {
+    return new Metadata;
 });
 
 $app->container->singleton('hash', function () use ($app) {

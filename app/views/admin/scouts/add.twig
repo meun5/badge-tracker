@@ -1,0 +1,76 @@
+{% extends 'templates/admin.twig' %}
+
+{% block title %}Add Scouts{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#addBadge").click(function (e) {
+            e.preventDefault();
+
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="container">
+              <form class="form-add" method="POST" action="{{ urlFor('admin.scouts.add.post') }}" id="addScout" role="form">
+                <h2 class="form-add-heading">Add Scout</h2>
+                <div class="form-group">
+                    <label for="inputName" class="sr-only">Name</label>
+                    <input type="text" id="inputName" name="inputName" class="form-control" placeholder="Scouts Name" required autofocus minlenght="1" maxlength="55">
+                </div>
+                <div class="form-group" style="float: left; padding-right: 15px;">
+                  <label for="inputAge" class="sr-only">Age</label>
+                  <select name="inputAge" class="form-control" style="float: left;">
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14" selected>14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="float: left;">
+                  <label for="inputRank" class="sr-only">Rank</label>
+                  <select name="inputRank" class="form-control" style="float: left;">
+                    <option value="scout">Scout</option>
+                    <option value="tender_foot">Tender Foot</option>
+                    <option value="second_class">Second Class</option>
+                    <option value="first_class" selected>First Class</option>
+                    <option value="star">Star</option>
+                    <option value="life">Life</option>
+                    <option value="egale">Egale</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="float: right; padding-left: 15px;">
+                    <button class="btn btn-md btn-success" type="button" id="addBadge" style="float: left;">Add Another Badge</button>
+                </div>
+
+                <div class="form-group" style="float: right;">
+                    <select name="inputBadge" class="form-control" style="float: right;">
+                      <option value="scout">Scout</option>
+                      <option value="tender_foot">Tender Foot</option>
+                      <option value="second_class">Second Class</option>
+                      <option value="first_class" selected>First Class</option>
+                      <option value="star">Star</option>
+                      <option value="life">Life</option>
+                      <option value="egale">Egale</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit" style="padding-top: 15px;">Submit</button>
+                <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}" id="check">
+              </form>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

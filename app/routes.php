@@ -10,3 +10,9 @@ require INC_ROOT . '/app/routes/auth/register.php';
 
 //Adminastration Routes
 require INC_ROOT . '/app/routes/admin/overview.php';
+
+//Scout Administration
+require INC_ROOT . '/app/routes/admin/scouts/add.php';
+
+//Badge Management
+require INC_ROOT . '/app/routes/admin/badges/add.php';

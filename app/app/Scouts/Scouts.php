@@ -13,7 +13,6 @@ class Scouts extends Eloquent
         'active',
         'merit_badge',
         'partial_badge',
-        'bsid',
         'rank',
         'metadata',
     ];
