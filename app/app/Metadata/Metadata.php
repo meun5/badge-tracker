@@ -17,9 +17,9 @@ class Metadata extends Eloquent
 
     public function listBadges() {
 
-        $data = $this->where('type', 'badge')->first();
+        $data = $this->where('type', 'badge')->get();
 
-        $data = json_decode(base64_decode($data));
+        $data = json_decode($data);
 
         return $data;
     }

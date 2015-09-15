@@ -8,7 +8,7 @@
         <div class="container">
             <h2 class="page-header">Add Merit Badges</h2>
             <div class="form">
-                <form action="{{ urlFor('admin.badges.add.post') }}">
+                <form action="{{ urlFor('admin.badges.add.post') }}" method="POST" role="form">
                     <div class="form-group">
                         <label for="inputName" class="sr-only">Badge Name</label>
                         <input type="text" id="inputName" class="form-control" name="inputName" placeholder="Badge Name" required autofocus>
@@ -25,8 +25,8 @@
                         </select></span> of the following</span>
                         <button type="button" id="add-req" class="btn btn-success" style="float: right;"><span class="glyphicon glyphicon-plus"></span> Add Requirement</button>
                     </div>
-                    <div class="form-group">
-                        <label for="inputReq" class="sr-only">Requirement #1</label>
+                    <div class="form-group req">
+                        <label for="inputReq" class="sr-only">Requirements</label>
                         <input type="text" id="inputReq" class="form-control" name="inputReq" placeholder="Requirement #1" required>
                     </div>
 
@@ -42,10 +42,15 @@
                         </select></span> of the following</span>
                         <button type="button" id="add-req" class="btn btn-success" style="float: right;"><span class="glyphicon glyphicon-plus"></span> Add Requirement</button>
                     </div>
-                    <div class="form-group">
-                        <label for="inputReq" class="sr-only">Requirement #1</label>
+                    <div class="form-group req">
+                        <label for="inputReq" class="sr-only">Requirements</label>
                         <input type="text" id="inputReq" class="form-control" name="inputReq" placeholder="Requirement #1" required>
                     </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                    <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}">
                 </form>
             </div>
         </div>
@@ -57,7 +62,18 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#add-req').click(function () {
-                $('').clone();
+                var clonedInput = $('#inputReq').clone(),
+                    clonedLabel = $("label[for='inputReq']").clone(),
+                    count = $(this).parent().next('.req').children("input").lenght + 1;
+
+                    alert(count);
+
+                $(clonedInput).attr("placeholder", "Requirement #" + count).val("");
+
+                //$(this) = $(this).parent;
+
+                $(this).parent().next('.req').append(clonedInput);
+
             });
         });
     </script>

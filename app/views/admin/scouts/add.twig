@@ -3,14 +3,7 @@
 {% block title %}Add Scouts{% endblock %}
 
 {% block scripts %}
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#addBadge").click(function (e) {
-            e.preventDefault();
-
-        });
-    });
-</script>
+<script src="{{ url.base }}/public/js/addscouts.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -23,6 +16,7 @@
                     <label for="inputName" class="sr-only">Name</label>
                     <input type="text" id="inputName" name="inputName" class="form-control" placeholder="Scouts Name" required autofocus minlenght="1" maxlength="55">
                 </div>
+                  
                 <div class="form-group" style="float: left; padding-right: 15px;">
                   <label for="inputAge" class="sr-only">Age</label>
                   <select name="inputAge" class="form-control" style="float: left;">
@@ -46,26 +40,51 @@
                     <option value="first_class" selected>First Class</option>
                     <option value="star">Star</option>
                     <option value="life">Life</option>
-                    <option value="egale">Egale</option>
+                    <option value="egale">Eagle</option>
                   </select>
                 </div>
 
-                <div class="form-group" style="float: right; padding-left: 15px;">
-                    <button class="btn btn-md btn-success" type="button" id="addBadge" style="float: left;">Add Another Badge</button>
+                <div style="float: right; overflow: auto;">
+                    <div>
+                        <h4>Completed Badges</h4>
+                        <button class="btn btn-md btn-success" type="button" id="addCompBadge">Add Another Badge</button>
+                        
+                        <div class="form-group" id="inputCompBadge">
+                            <select name="inputCompBadge[0]" class="form-control" id="selectCompBadge">
+                              <option value="select" selected="">Select</option>
+                              {% set v = 0 %}
+                              {% for i in badges %}
+                                <option value="{{ badges[v].name }}">{{ badges[v].name|capitalize }}</option>
+                              {% set v = v + 0 %}
+                              {% endfor %}
+                              <option value="tender_foot">Tender Foot</option>
+                              
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4>Partial Badges</h4>
+                        <button class="btn btn-md btn-success" type="button" id="addIncBadge">Add Another Badge</button>
+
+                        <div class="form-group" id="inputIncBadge">
+                            <select name="inputIncBadge[0]" class="form-control inc-badge" id="selectIncBadge">
+                              <option value="select" selected="">Select</option>
+                              {% set v = 0 %}
+                              {% for i in badges %}
+                                <option value="{{ badges[v].name }}">{{ badges[v].name|capitalize }}</option>
+                              {% set v = v + 0 %}
+                              {% endfor %}
+                              <option value="tender_foot">Tender Foot</option>
+                              
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group" style="float: right;">
-                    <select name="inputBadge" class="form-control" style="float: right;">
-                      <option value="scout">Scout</option>
-                      <option value="tender_foot">Tender Foot</option>
-                      <option value="second_class">Second Class</option>
-                      <option value="first_class" selected>First Class</option>
-                      <option value="star">Star</option>
-                      <option value="life">Life</option>
-                      <option value="egale">Egale</option>
-                    </select>
+                <div class="requirements_pane">
                 </div>
-
+                  
                 <button class="btn btn-lg btn-primary btn-block" type="submit" style="padding-top: 15px;">Submit</button>
                 <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}" id="check">
               </form>
@@ -73,4 +92,8 @@
             
         </div>
     </div>
+{% endblock %}
+
+{% block styles %}
+<link href="{{ url.base }}/public/css/addscouts.css" type="text/css" rel="stylesheet">
 {% endblock %}

@@ -1,0 +1,9 @@
+div {
+    overflow: auto;
+}
+#addIncBadge, #addCompBadge, #inputIncBadge, #inputCompBadge {
+    float: right;
+}
+#inputIncBadge, #inputCompBadge {
+    padding-right: 15px;
+}
