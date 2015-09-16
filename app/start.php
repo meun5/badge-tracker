@@ -14,6 +14,7 @@ use app\Validation\Validator;
 use app\User\User;
 use app\Scouts\Scouts;
 use app\Metadata\Metadata;
+use app\Gear\Gear;
 
 use app\MiddleWare\BeforeMiddleWare;
 use app\MiddleWare\CsrfMiddleWare;
@@ -53,6 +54,10 @@ $app->container->set('scouts', function () {
 
 $app->container->set('metadata', function () {
     return new Metadata;
+});
+
+$app->container->set('gear', function () {
+    return new Gear;
 });
 
 $app->container->singleton('hash', function () use ($app) {

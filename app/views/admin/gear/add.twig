@@ -1,0 +1,51 @@
+{% extends 'templates/admin.twig' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="container">
+            <h2 class="page-header">Add Gear</h2>
+            <div class="form">
+                <form class="form-add" method="POST" action="{{ urlFor('admin.gear.add.post') }}" id="addGear" role="form">
+                <div class="form-group">
+                    <label for="inputName" class="sr-only">Gear Name</label>
+                    <input type="text" id="inputName" name="inputName" class="form-control" placeholder="Gear Name" required autofocus maxlength="55">
+                </div>
+
+                <div class="form-group" style="float: left;">
+                  <label for="inputAmount">Amount</label>
+                  <select name="inputAmount" class="form-control" required>
+                    <option value="1" selected="">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="float: left; padding-left: 15px;">
+                  <label for="inputBrand">Brand</label>
+                  <input type="text" id="inputBrand" name="inputBrand" class="form-control" placeholder="Gear Brand" maxlength="30">
+                </div>
+
+                <div class="checkbox" style="float: left; padding-left: 15px;">
+                  <label for="inputCheckOut" class="checkbox-label">Checked Out</label>
+                  <input type="checkbox" name="inputCheckOut" id="inputCheckOut" style="vertical-align: text-bottom;">
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}" id="check">
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<link type="text/css" rel="stylesheet" href="{{ url.base }}/public/">
+{% endblock %}

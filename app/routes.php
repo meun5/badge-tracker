@@ -16,3 +16,9 @@ require INC_ROOT . '/app/routes/admin/scouts/add.php';
 
 //Badge Management
 require INC_ROOT . '/app/routes/admin/badges/add.php';
+
+//Gear Display
+require INC_ROOT . '/app/routes/gear/list.php';
+
+//Gear Managment
+require INC_ROOT . '/app/routes/admin/gear/add.php';
