@@ -16,11 +16,9 @@ $RECYCLE.BIN/
 
 # Composer Install Files
 vendor
-composer.lock
 
 # Local Config Files
 local.php
-mode.php
 
 # Windows shortcuts
 *.lnk
