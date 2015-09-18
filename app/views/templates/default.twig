@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url.base }}/public/css/cover.css" rel="stylesheet">
+    <link href="{{ url.base }}/css/cover.css" rel="stylesheet">
 
     {% if auth == null and url.current != '/login' %}
-    <link href="{{ url.base }}/public/css/default.css" rel="stylesheet">
+    <link href="{{ url.base }}/css/default.css" rel="stylesheet">
     {% endif %}
 
     {% block styles %}{% endblock %}
@@ -49,13 +49,13 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ url.base }}/public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{ url.base }}/js/ie10-viewport-bug-workaround.js"></script>
 
     {% if auth == null and url.current != '/login' %}
-    <script src="{{ url.base }}/public/js/ajax-login.js"></script>
+    <script src="{{ url.base }}/js/ajax-login.js"></script>
 
     <!-- Login Modal Trigger -->
-    <script src="{{ url.base }}/public/js/default.js"></script>
+    <script src="{{ url.base }}/js/default.js"></script>
     {% endif %}
 
     {% block scripts %}{% endblock %}
