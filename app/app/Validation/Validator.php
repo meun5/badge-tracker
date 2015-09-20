@@ -63,4 +63,9 @@ class Validator extends Violin
 
         return false;
     }
+    
+    public function validate_matchesCurrentPassword($value, $input, $args)
+    {
+        return ! (bool) $this->user->where('username', $value)->count();
+    }
 }
