@@ -90,8 +90,6 @@ class Validator extends Violin
             };
         }
 
-        //return $this->errors()->all();
-
         $array = [
                 "success" => $success,
                 "errors" => $errorArray ? $errorArray : null,
