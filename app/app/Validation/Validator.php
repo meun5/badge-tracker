@@ -31,6 +31,9 @@ class Validator extends Violin
 
             'username' => [
                 'uniqueUsername' => 'That username is already in use.'
+            ],
+            'not_null' => [
+                'not_null' => 'That variable is null.'
             ]
         ]);
 
@@ -64,8 +67,41 @@ class Validator extends Violin
         return false;
     }
     
-    public function validate_matchesCurrentPassword($value, $input, $args)
+    public function validate_not_null($value, $input, $args)
     {
-        return ! (bool) $this->user->where('username', $value)->count();
+        return ! (bool) is_null($value);
+    }
+
+    public function constructArray($success = true, $errors = null, $url, $json = true)
+    {
+        if (!is_null($errors)) {
+            $keys = $this->errors()->keys();
+            $messages = $this->errors()->all();
+            $errorArray = [];
+            $v = 0;
+
+            foreach ($messages as $error) {
+                $errorArray[] = [
+                    "item" => $keys[$v],
+                    "message" => $messages[$v],
+                ];
+
+                $v++;
+            };
+        }
+
+        //return $this->errors()->all();
+
+        $array = [
+                "success" => $success,
+                "errors" => $errorArray ? $errorArray : null,
+                "url" => $url
+        ];
+
+        if ($json) {
+            return json_encode($array);
+        }
+
+        return $array;
     }
 }
