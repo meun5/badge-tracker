@@ -15,9 +15,9 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
     $v = $app->validation;
 
     $v->validate([
-        "inputName" => [$post["inputName"], 'required|alnumDash|not_null'],
+        "inputName" => [$post["inputName"], 'required|alnumDashSpc|not_null'],
         "inputAmount" => [$post["inputAmount"], 'required|int|not_null'],
-        "inputBrand" => [$post["inputBrand"], 'required|alnumDash|not_null'],
+        "inputBrand" => [$post["inputBrand"], 'required|alnumDashSpc|not_null'],
         "inputSerial" => [$post["inputSerial"], 'alnumDash|not_null'],
     ]);
 

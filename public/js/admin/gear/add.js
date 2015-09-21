@@ -42,12 +42,13 @@ $(document).ready(function () {
                 inputStatus: status,
                 inputStatusOther: statusOther ? statusOther : null,
                 csrf_token: csrf_token,
-                inputSerial: serial ? serial : null,
-                
+                inputSerial: serial ? serial : null
             },
             success: function (v) {
                 if (v.success) {
-                    console.log("Win");
+                    $("#modalContainer").removeAttr('style');
+                    $(':input','#addGear').not(':button, :submit, :reset, :hidden, select').val('').removeAttr('checked');
+                    $("#successModal").modal("show");
                 } else {
                     console.warn("Lose");
                 }

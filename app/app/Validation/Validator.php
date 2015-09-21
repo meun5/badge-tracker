@@ -38,7 +38,8 @@ class Validator extends Violin
         ]);
 
         $this->addRuleMessages([
-            'matchesCurrentPassword'=> 'That does not match your current password.'
+            'matchesCurrentPassword'=> 'That does not match your current password.',
+            'alnumDashSpc' => '{field} must be alphanumeric with dashes underscores, and spaces permitted.'
         ]);
     }
 
@@ -70,6 +71,11 @@ class Validator extends Violin
     public function validate_not_null($value, $input, $args)
     {
         return ! (bool) is_null($value);
+    }
+
+    public function validate_alnumDashSpc($value, $input, $args)
+    {
+        return (bool) preg_match('/^[\s\pL\pM\pN_-]+$/u', $value);
     }
 
     public function constructArray($success = true, $errors = null, $url, $json = true)
