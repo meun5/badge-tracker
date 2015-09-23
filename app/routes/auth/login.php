@@ -41,10 +41,14 @@ $app->post('/login', $guest(), function () use ($app) {
                     $app->hash->hash($rememberToken)
                 );
 
-                $app->setCookie(
+                $create = $app->setCookie(
                     $app->config->get('auth.remember'),
                     "{$rememberIdentifier}___{$rememberToken}",
-                    Carbon::parse('+1 month')->timestamp
+                    Carbon::parse('+1 month')->timestamp,
+                    null,
+                    null,
+                    true,
+                    true
                 );
             }
 

@@ -11,10 +11,12 @@ $(document).ready(function () {
         e.preventDefault();
         var user = $("#inputUser").val(),
             password = $("#inputPassword").val(),
-            remember = $("#inputRemember").val(),
+            remember = $("#inputRemember").prop('checked'),
             csrf_name = $("#check").name,
             csrf_token = $("#check").val(),
             url = $(this).attr("action");
+
+        (remember == true) ? remember = 'on' : remember = undefined;
 
         $.ajax({
             url: url,
