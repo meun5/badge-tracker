@@ -50,7 +50,7 @@ $(document).ready(function () {
                     $(':input','#addGear').not(':button, :submit, :reset, :hidden, select').val('').removeAttr('checked');
                     $("#successModal").modal("show");
                 } else {
-                    console.warn("Lose");
+                    console.log(v);
                 }
             }
         });

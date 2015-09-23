@@ -63,7 +63,7 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
     }
     
     if ($app->request->isAjax()) {
-        echo $v->constructArray(false, $v->errors, $app->urlFor("admin.gear.add"), true);
+        echo $v->constructArray(false, $v->errors(), $app->urlFor("admin.gear.add"), true);
         return;
     }
 
