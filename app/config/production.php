@@ -8,9 +8,8 @@ return [
         'author'   => 'Alex Young',
         'hash'  => [
             'algo'  => PASSWORD_BCRYPT,
-            'cost'  => 25
+            'cost'  => 25,
         ],
-
         'webmaster' => 'clamy4@msn.com',
     ],
 
@@ -41,10 +40,14 @@ return [
     ],
 
     'twig'  => [
-        'debug'     => true,
+        'debug'     => false,
     ],
     
     'csrf'  => [
         'key'   => 'csrf_token',
+    ],
+
+    'checkout' => [
+        'session' => 'checkout_session',
     ],
 ];

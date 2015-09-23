@@ -8,7 +8,7 @@ return [
         'author'   => 'Alex Young',
         'hash'  => [
             'algo'  => PASSWORD_BCRYPT,
-            'cost'  => 10
+            'cost'  => 10,
         ],
         'webmaster' => 'clamy4@msn.com',
     ],
@@ -45,5 +45,9 @@ return [
     
     'csrf'  => [
         'key'   => 'csrf_token',
+    ],
+
+    'checkout' => [
+        'session' => 'checkout_session',
     ],
 ];
