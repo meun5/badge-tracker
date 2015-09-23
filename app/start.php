@@ -27,7 +27,7 @@ define('INC_ROOT', dirname(__DIR__));
 require INC_ROOT . '/vendor/autoload.php';
 
 $app = new Slim([
-    'mode' => file_get_contents(INC_ROOT . '/mode.php'),
+    'mode' => implode('', file(INC_ROOT . '/mode.php', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)),
     'view' => new Twig(),
     'templates.path' => INC_ROOT . '/app/views'
 ]);
