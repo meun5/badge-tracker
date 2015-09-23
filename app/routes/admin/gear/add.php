@@ -26,14 +26,14 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
             if ($post["inputCheckOut"] === "on") {
                 $v->validate([
                     "inputDate" => [$post["inputDate"], 'required|date|not_null'],
-                    "inputCheckOutName" => [$post["inputCheckoutName"], 'required|not_null'],
+                    "inputCheckOutName" => [$post["inputCheckOutName"], 'required|not_null'],
                 ]);
                 
                 if ($v->passes()) {
                     $json = [];
 
                     $json[] = [
-                        "name" => $post["inputCheckoutName"],
+                        "name" => $post["inputCheckOutName"],
                         "date" => $post["inputDate"],
                     ];
 
@@ -47,12 +47,12 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
             "brand" => $post["inputBrand"],
             "amount" => $post["inputAmount"],
             "enabled" => true,
-            "check" => (isset($post["inputCheck"])) ? true : false,
+            "check" => (isset($post["inputCheckOut"])) ? true : false,
             "checkout_history" => (isset($json)) ? $json : null,
         ]);
 
         if ($app->request->isAjax() && isset($create)) {
-            echo $v->constructArray(true, $app->urlFor("admin.gear.add"), true);
+            echo $v->constructArray(true, $app->urlFor("admin.gear.add"), null);
             return;
         } elseif (isset($create)) {
             $app->render('admin/gear/add.twig', [
@@ -63,7 +63,7 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
     }
     
     if ($app->request->isAjax()) {
-        echo $v->constructArray(false, $v->errors(), $app->urlFor("admin.gear.add"), true);
+        echo $v->constructArray(false, $v->errors(), $app->urlFor("admin.gear.add"), null);
         return;
     }
 
