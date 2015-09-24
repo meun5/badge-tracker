@@ -3,6 +3,14 @@ A small merit badge tracking system written in PHP and Twig
 
 This was originally written for Troop43 in Urbandale, Iowa
 
+Requirements
+-----------
+The application requires:
+
+1. PHP Version 5.6 or greater or HHVM 3.6 or greater
+2. MySQL Server version 5.6 or greater
+3. Nginx or Apache or someother webserver capable of interacting with the PHP Interpreter.
+
 Installation
 -----------
 
