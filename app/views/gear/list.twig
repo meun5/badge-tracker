@@ -2,4 +2,60 @@
 
 {% block title %}Gear Listing{% endblock %}
 
-{% block content %} {% endblock %}
+{% block content %}
+<div class="gear-list">
+    <span hidden="hidden" id="{{ csrf_token }}" class="hidden post"></span>
+    <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Brand</th>
+              <th>Amount</th>
+              <th>Currently Checked Out</th>
+              <th>Check Out</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% if not gear %}
+                <tr>
+                  <td>No Gear</td>
+                  <td>---</td>
+                  <td>---</td>
+                  <td>---</td>
+                  <td>---</td>
+                </tr>
+            {% else %}
+                {% set v = 0 %}
+                {% for i in gear %}
+                    <tr>
+                      <td>{{ gear[v].name }}</td>
+                      <td>{{ gear[v].brand }}</td>
+                      <td>{{ gear[v].amount }}</td>
+                      <td>
+                          {% if gear[v].check == true %}
+                            <span class="yes">Yes</span>
+                          {% else %}
+                            <span class="no">No</span>
+                          {% endif %}
+                      </td>
+                      <td><span class="link checkouturl" id="{{ gear[v].id }}">Check Out</span></td>
+                    </tr>
+                {% set v = v + 1 %}
+                {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    <br>
+    {{ dump(gear) }}
+</div>
+{% endblock %}
+
+{% block styles %}
+<link href="{{ url.base }}/css/gear/list.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ url.base }}/js/gear/list.js"></script>
+{% endblock %}
