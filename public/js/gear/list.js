@@ -16,7 +16,7 @@ $(document).ready(function () {
                if (v.success) {
                    console.info(v.success);
                    console.log(v);
-                   //$(location).attr('href', v.url);
+                   $(location).attr('href', v.url);
                } else {
                    console.log(v);
                }

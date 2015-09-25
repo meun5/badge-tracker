@@ -1,0 +1,18 @@
+.checkout-form {
+    float: right;
+    width: 50%;
+}
+.item-info {
+    float: left;
+    width: 50%;
+}
+.line {
+    border-bottom: 1px #ddd solid;
+}
+.label {
+    font-size: 16px;
+    font-weight: bold;
+}
+.padding-bottom {
+    padding-bottom: 5px;
+}

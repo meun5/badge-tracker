@@ -31,16 +31,3 @@ $app->post('/gear/list', function () use ($app) {
 
     return;
 })->name("gear.list.post");
-
-$app->get('/gear/checkout', function () use ($app) {
-    $gear = $app->gear;
-    if (isset($_SESSION[$app->config->get("checkout.session")])) {
-        $gear = $gear->where('id', $_SESSION[$app->config->get("checkout.session")])->first();
-    }
-
-    unset($_SESSION[$app->config->get("checkout.session")]);
-
-    $app->render('/gear/list.twig', [
-        'gear' => $gear,
-    ]);
-})->name("gear.checkout");

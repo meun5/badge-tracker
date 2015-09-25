@@ -1,0 +1,48 @@
+{% extends 'templates/default.twig' %}
+
+{% block title %}Gear Checkout{% endblock %}
+
+{% block content %}
+<div class="checkout-body">
+    <div class="header">
+        <h2 class="page-header">Gear Checkout</h2>
+    </div>
+    <div class="item-info">
+        {% if not gear %}
+            <h4>No Gear Info Found</h4>
+        {% else %}
+            <div class="padding-bottom">
+                <h4 class="line">Item Info</h4>
+                <p class="gear-name"><span class="label">Name:</span>{{ gear.name }}</p>
+                <p class="gear-name"><span class="label">Brand:</span>{{ gear.brand }}</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="checkout-form">
+        <h3>Checkout</h3>
+        <form class="form-add" method="POST" action="{{ urlFor('gear.checkout.post') }}" id="checkoutGear" role="form">
+            <div class="form-group">
+                <label for="inputDate">Check Out Date</label>
+                <input type="text" id="inputDate" name="inputDate" class="form-control" placeholder="Checkout Date">
+            </div>
+
+            <div class="form-group" id="checkoutName">
+                    <label for="inputDate">Check Out Name</label>
+                    <input type="text" id="inputCheckOutName" name="inputCheckOutName" class="form-control" placeholder="Checkout Name">
+            </div>
+        </form>
+    </div>
+    <div class="checkout-history">
+        {% if not gear.checkout_history %}
+            <div class="item-history"><h4>No Checkout History</h4></div>
+        {% else %}
+            {% for i in gear.checkout_history %}
+                <code>$app->request->post()</code>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url.base }}/css/gear/checkout.css" type="text/css">
+{% endblock %}

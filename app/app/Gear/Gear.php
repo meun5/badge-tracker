@@ -15,6 +15,7 @@ class Gear extends Eloquent
         'check',
         'type',
         'enabled',
+        'checkout_history',
     ];
 
     public function checkOut() {
