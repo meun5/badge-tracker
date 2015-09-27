@@ -11,10 +11,11 @@
         {% if not gear %}
             <h4>No Gear Info Found</h4>
         {% else %}
-            <div class="padding-bottom">
+            <div>
                 <h4 class="line">Item Info</h4>
                 <p class="gear-name"><span class="label">Name:</span>{{ gear.name }}</p>
                 <p class="gear-name"><span class="label">Brand:</span>{{ gear.brand }}</p>
+                <p class="gear-name"><span class="label">Amount:</span>{{ gear.amount }}</p>
             </div>
         {% endif %}
     </div>
@@ -36,9 +37,36 @@
         {% if not gear.checkout_history %}
             <div class="item-history"><h4>No Checkout History</h4></div>
         {% else %}
-            {% for i in gear.checkout_history %}
-                <code>$app->request->post()</code>
-            {% endfor %}
+            <div class="item-history"><h4 class="line">Checkout History</h4></div>
+            <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Checkout Day</th>
+                  <th>Checkin Day</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% set v = 0 %}
+                {% for i in gear.checkout_history %}
+                    <tr>
+                      <td>{{ gear.checkout_history[v].name }}</td>
+                      <td>{{ gear.checkout_history[v].dateOut }}</td>
+                      <td>
+                          {% if gear.checkout_history[v].dateIn is empty %}
+                          ---
+                          {% else %}
+                          {{ gear.checkout_history[v].dateIn }}
+                          {% endif %}
+                      </td>
+                    </tr>
+                {% set v = v + 1 %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
         {% endif %}
     </div>
 </div>

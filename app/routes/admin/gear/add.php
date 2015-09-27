@@ -14,12 +14,19 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
 
     $v = $app->validation;
 
-    $v->validate([
+    $validate = [
         "inputName" => [$post["inputName"], 'required|alnumDashSpc|not_null'],
         "inputAmount" => [$post["inputAmount"], 'required|int|not_null'],
         "inputBrand" => [$post["inputBrand"], 'required|alnumDashSpc|not_null'],
         "inputSerial" => [$post["inputSerial"], 'alnumDash|not_null'],
-    ]);
+        "inputStatus" => [$post["inputStatus"], 'required|alpha|not_null'],
+    ];
+
+    if ($post["inputStatus"] === 'other') {
+        $validate["inputStatusOther"] = [$post["inputStatusOther"], 'required|alpha|not_null'];
+    }
+
+    $v->validate($validate);
 
     if ($v->passes()) {
         if (isset($post["inputCheckOut"])) {
@@ -34,7 +41,8 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
 
                     $json[] = [
                         "name" => $post["inputCheckOutName"],
-                        "date" => $post["inputDate"],
+                        "dateOut" => $post["inputDate"],
+                        "dateIn" => "",
                     ];
 
                     $json = json_encode($json);
@@ -46,6 +54,8 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
             "name" => $post["inputName"],
             "brand" => $post["inputBrand"],
             "amount" => $post["inputAmount"],
+            "serial" => $post["inputSerial"],
+            "status" => ($post["inputStatus"] === 'other') ? $post["inputStatusOther"] : $post["inputStatus"],
             "enabled" => true,
             "check" => (isset($post["inputCheckOut"])) ? true : false,
             "checkout_history" => (isset($json)) ? $json : null,

@@ -12,6 +12,8 @@ class Gear extends Eloquent
         'name',
         'brand',
         'amount',
+        'status',
+        'serial',
         'check',
         'type',
         'enabled',

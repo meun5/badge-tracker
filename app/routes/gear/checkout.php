@@ -6,6 +6,10 @@ $app->get('/gear/checkout', function () use ($app) {
         return $app->response->redirect($app->urlFor("gear.list"));
     }
 
+    $json = json_decode($gear["checkout_history"]);
+
+    $gear["checkout_history"] = $json;
+
     $app->render('/gear/checkout.twig', [
         'gear' => $gear,
     ]);

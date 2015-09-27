@@ -13,6 +13,15 @@
     font-size: 16px;
     font-weight: bold;
 }
-.padding-bottom {
-    padding-bottom: 5px;
+.checkout-body {
+    overflow: auto;
+    height: 100%;
+}
+.checkout-history {
+	display: block;
+    width: 100%;
+    overflow: auto;
+}
+.table > tbody > tr > td {
+    text-align: left;
 }
