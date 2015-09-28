@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `scout-merit` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `scout-merit`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: scout-merit
@@ -18,6 +16,51 @@ USE `scout-merit`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `tr_gear`
+--
+
+DROP TABLE IF EXISTS `tr_gear`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tr_gear` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(455) NOT NULL,
+  `brand` text NOT NULL,
+  `serial` varchar(45) DEFAULT NULL,
+  `status` varchar(15) DEFAULT NULL,
+  `amount` int(3) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `check` tinyint(1) NOT NULL DEFAULT '0',
+  `enabled` tinyint(1) NOT NULL DEFAULT '1',
+  `checkout_history` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tr_metadata`
+--
+
+--
+-- This table is not yet in general use by the application.
+--
+
+DROP TABLE IF EXISTS `tr_metadata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tr_metadata` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(455) NOT NULL,
+  `metadata` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `type` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `tr_permissions`
 --
 
@@ -28,21 +71,11 @@ CREATE TABLE `tr_permissions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `is_admin` tinyint(1) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tr_permissions`
---
-
-LOCK TABLES `tr_permissions` WRITE;
-/*!40000 ALTER TABLE `tr_permissions` DISABLE KEYS */;
-INSERT INTO `tr_permissions` VALUES (3,1,1,'2015-09-08 08:23:23','2015-09-08 08:23:23');
-/*!40000 ALTER TABLE `tr_permissions` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tr_scouts`
@@ -54,26 +87,15 @@ DROP TABLE IF EXISTS `tr_scouts`;
 CREATE TABLE `tr_scouts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(55) NOT NULL,
-  `bsid` varchar(45) NOT NULL,
   `rank` varchar(45) NOT NULL,
   `active` tinyint(1) NOT NULL,
-  `merit_badge` varchar(255) DEFAULT NULL,
-  `partial_badge` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `merit_badge` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `metadata` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tr_scouts`
---
-
-LOCK TABLES `tr_scouts` WRITE;
-/*!40000 ALTER TABLE `tr_scouts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tr_scouts` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tr_users`
@@ -83,7 +105,7 @@ DROP TABLE IF EXISTS `tr_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tr_users` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
@@ -97,24 +119,10 @@ CREATE TABLE `tr_users` (
   `update_email` varchar(255) DEFAULT NULL,
   `update_token` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tr_users`
---
-
-LOCK TABLES `tr_users` WRITE;
-/*!40000 ALTER TABLE `tr_users` DISABLE KEYS */;
-INSERT INTO `tr_users` VALUES (1,'meun5',NULL,NULL,'pip@littlepip.co','$2y$10$nx1NDC2uat7NKmVCFNce7..XPgFrP095yiUJCx.OiyD5Fo04khIiO',1,'',NULL,NULL,NULL,NULL,NULL,'2015-09-06 01:15:42','2015-09-06 05:18:38');
-/*!40000 ALTER TABLE `tr_users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping events for database 'scout-merit'
---
 
 --
 -- Dumping routines for database 'scout-merit'
@@ -129,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-08 20:37:09
+-- Export completed on 2015-09-28 24:00:00
