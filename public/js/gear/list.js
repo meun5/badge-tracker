@@ -1,5 +1,5 @@
 $(document).ready(function () {
-   $(".checkouturl").click(function () {
+   $(".checkurl").click(function () {
        var url = window.location.href,
            id = $(this).prop('id'),
            csrf = $(".post").prop('id');
