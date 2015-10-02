@@ -14,25 +14,19 @@ class Gear extends Eloquent
         'amount',
         'status',
         'serial',
-        'check',
         'type',
         'enabled',
         'checkout_history',
     ];
 
-    public function checkOut() {
-        $this->update([
-            'check' => "true",
-        ]);
-    }
-
-    public function checkIn() {
-        $this->update([
-            'check' => "false",
-        ]);
-    }
-
     public function getAll() {
         return $this->where('enabled', true)->get();
+    }
+
+    public function updateCheckOut($json)
+    {
+        $this->update([
+            'checkout_history' => $json,
+        ]);
     }
 }

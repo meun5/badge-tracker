@@ -69,3 +69,9 @@ a, a:focus, a:hover {
 .navbar-brand {
 	font-size: 28px;
 }
+.green {
+    color: forestgreen;
+}
+.red {
+    color: red;
+}

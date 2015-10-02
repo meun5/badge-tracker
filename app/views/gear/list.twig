@@ -33,13 +33,23 @@
                       <td>{{ gear[v].brand }}</td>
                       <td>{{ gear[v].amount }}</td>
                       <td>
-                          {% if gear[v].check == true %}
+                        {% set x = false %}
+                        {% set n = 0 %}
+                        {% for i in gear[v].checkout_history %}
+                            {% if gear[v].checkout_history[n].dateOut and gear[v].checkout_history[n].dateIn is empty %}
+                                {% set x = true %}
+                                {% set n = n + 1 %}
+                            {% else %}
+                            {{ gear[v].checkout_history }}
+                            {% endif %}
+                        {% endfor %}
+                        {% if x == true %}
                             <span class="yes">Yes</span>
-                          {% else %}
+                        {% else %}
                             <span class="no">No</span>
-                          {% endif %}
+                        {% endif %}
                       </td>
-                      <td><span class="link checkurl" id="{{ gear[v].id }}" data-value="{% if gear[v].check == true %}in{% else %}out{% endif %}">{% if gear[v].check == true %}Check In{% else %}Check Out{% endif %}</span></td>
+                      <td><span class="link checkurl" id="{{ gear[v].id }}" data-value="{% if x == true %}in{% else %}out{% endif %}">{% if x == true %}Check In{% else %}Check Out{% endif %}</span></td>
                     </tr>
                 {% set v = v + 1 %}
                 {% endfor %}

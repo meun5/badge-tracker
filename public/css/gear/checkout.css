@@ -25,3 +25,9 @@
 .table > tbody > tr > td {
     text-align: left;
 }
+.form-button {
+    padding-top: 15px;
+}
+.inline-span {
+    float: right;
+}

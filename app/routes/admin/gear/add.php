@@ -57,7 +57,6 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
             "serial" => $post["inputSerial"],
             "status" => ($post["inputStatus"] === 'other') ? $post["inputStatusOther"] : $post["inputStatus"],
             "enabled" => true,
-            "check" => (isset($post["inputCheckOut"])) ? true : false,
             "checkout_history" => (isset($json)) ? $json : null,
         ]);
 

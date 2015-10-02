@@ -98,8 +98,8 @@ class Validator extends Violin
 
         $array = [
                 "success" => $success,
-                "errors" => $errorArray ? $errorArray : null,
-                "url" => $url
+                "errors" => (isset($errorArray)) ? $errorArray : null,
+                "url" => $url,
         ];
 
         if ($json) {

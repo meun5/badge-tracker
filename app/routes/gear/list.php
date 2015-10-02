@@ -3,6 +3,12 @@
 $app->get('/gear/list', function () use ($app) {
     $allgear = $app->gear->getAll();
 
+    $x = 0;
+    foreach ($allgear as $history) {
+        $allgear[$x]["checkout_history"] = json_decode($allgear[$x]->checkout_history);
+        $x++;
+    }
+
     $app->render('/gear/list.twig', [
         'gear' => json_decode($allgear),
     ]);
