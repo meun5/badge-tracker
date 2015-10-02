@@ -78,11 +78,11 @@ class Validator extends Violin
         return (bool) preg_match('/^[\s\pL\pM\pN_-]+$/u', $value);
     }
 
-    public function constructArray($success = true, $errors = null, $url, $json = true)
+    public function constructArray($success = true, $validationErrors = null, $otherErrors = null, $url, $json = true)
     {
-        if (!is_null($errors)) {
-            $keys = $this->errors()->keys();
-            $messages = $this->errors()->all();
+        if (!is_null($validationErrors)) {
+            $keys = $validationErrors->keys();
+            $messages = $validationErrors->all();
             $errorArray = [];
             $v = 0;
 
@@ -98,9 +98,13 @@ class Validator extends Violin
 
         $array = [
                 "success" => $success,
-                "errors" => (isset($errorArray)) ? $errorArray : null,
+                "errors" => (isset($errorArray)) ? $errorArray : "",
                 "url" => $url,
         ];
+
+        if (is_null($validationErrors) && ! is_null($otherErrors)) {
+            $array["errors"] = $otherErrors;
+        }
 
         if ($json) {
             return json_encode($array);
