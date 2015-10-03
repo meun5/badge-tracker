@@ -25,7 +25,7 @@ class Gear extends Eloquent
 
     public function updateCheckOut($json)
     {
-        $this->update([
+        return $this->update([
             'checkout_history' => $json,
         ]);
     }
