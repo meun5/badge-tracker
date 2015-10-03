@@ -12,3 +12,6 @@ body {
 .hidden {
     display: none;
 }
+.gear-list {
+    padding-top: 50px;
+}
