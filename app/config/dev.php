@@ -4,7 +4,7 @@ return [
     'app'   => [
         'url'   => 'http://localhost/',
         'name'   => 'Merit-Tracker',
-        'version'   => '0.0.1.3',
+        'version'   => '0.1.3.2',
         'author'   => 'Alex Young',
         'hash'  => [
             'algo'  => PASSWORD_BCRYPT,
