@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $("#modalContainer").removeAttr('style');
     $(".login").click(function (e) {
+        $("#modalContainer").removeAttr('style');
         e.preventDefault();
-        $("#loginModal").modal();
+        $("#loginModal").modal("show");
     });
 });
