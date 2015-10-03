@@ -81,19 +81,15 @@ class Validator extends Violin
     public function constructArray($success = true, $validationErrors = null, $otherErrors = null, $url, $json = true)
     {
         if (!is_null($validationErrors)) {
-            $keys = $validationErrors->keys();
-            $messages = $validationErrors->all();
             $errorArray = [];
             $v = 0;
 
-            foreach ($messages as $error) {
+            foreach ($validationErrors->keys() as $var) {
                 $errorArray[] = [
-                    "item" => $keys[$v],
-                    "message" => $messages[$v],
+                    "item" => $var,
+                    "message" =>$validationErrors->first($var),
                 ];
-
-                $v++;
-            };
+            }
         }
 
         $array = [
