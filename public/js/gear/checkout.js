@@ -50,8 +50,21 @@ $(document).ready(function () {
                     inputCheckInName: inName,
                     id: id,
                     csrf_token: csrf
+                },
+                success: function (v) {
+                    if (v.success) {
+                        $("#dateModal").modal("hide");
+                        $("#modalContainer").removeAttr('style');
+                        $("#successModal").modal("show");
+                    } else {
+                        console.log(v);
+                    }
                 }
             });
         });
+    });
+    $("#modalDismiss").click(function () {
+        $("body").delay(6000);
+        location.reload();
     });
 });

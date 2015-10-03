@@ -39,8 +39,6 @@
                             {% if gear[v].checkout_history[n].dateOut and gear[v].checkout_history[n].dateIn is empty %}
                                 {% set x = true %}
                                 {% set n = n + 1 %}
-                            {% else %}
-                            {{ gear[v].checkout_history }}
                             {% endif %}
                         {% endfor %}
                         {% if x == true %}

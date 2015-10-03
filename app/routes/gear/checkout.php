@@ -46,7 +46,6 @@ $app->post('/gear/checkout', function () use ($app) {
 
     if ($v->passes()) {
         if ($mode == 'in') {
-            echo json_encode($json[$post["id"]]);
             $json[$post["id"]] = [
                 "name" => $json[$post["id"]]->name,
                 "dateOut" => $json[$post["id"]]->dateOut,
@@ -55,11 +54,11 @@ $app->post('/gear/checkout', function () use ($app) {
 
             $update = $gear->updateCheckOut(json_encode($json));
 
-            if (isset($update)) {
-                echo $v->constructArray(true, null, $app->urlFor("gear.checkout"), true);
-            } else {
-                echo $v->constructArray(false, null, $app->urlFor("gear.checkout"), true);
+            if ($update) {
+                echo $v->constructArray(true, null, null, $app->urlFor("gear.checkout"), true);
+                return;
             }
+            echo $v->constructArray(false, null, "Process Error", $app->urlFor("gear.checkout"), true);
             return;
         } elseif ($mode == 'out') {
             $json[] = [
@@ -70,16 +69,32 @@ $app->post('/gear/checkout', function () use ($app) {
 
             $update = $gear->updateCheckOut(json_encode($json));
 
-            if (isset($update)) {
-                echo $v->constructArray(true, null, $app->urlFor("gear.checkout"), true);
-            } else {
-                echo $v->constructArray(false, null, $app->urlFor("gear.checkout"), true);
+            if ($update) {
+                echo $v->constructArray(true, null, null, $app->urlFor("gear.checkout"), true);
+                return;
             }
+            echo $v->constructArray(false, null, "Process Error", $app->urlFor("gear.checkout"), true);
+            return;
         }
         return;
     } elseif ($v->errors()) {
-        echo $v->constructArray(false, $v->errors(), $app->urlFor("gear.checkout"), true);
+        echo $v->constructArray(false, $v->errors(), null, $app->urlFor("gear.checkout"), true);
         return;
     }
     return;
 })->name("gear.checkout.post");
+
+$app->get('/gear/checkout/test', function () use ($app) {
+    $v = $app->validation;
+
+    $v->validate([
+        "in" => ["steve", 'max(3)'],
+    ]);
+
+    var_dump($v->errors());
+
+    echo "<br>";
+    echo "<br>";
+
+    var_dump($v->constructArray(false, $v->errors(), null, $app->urlFor("home"), false));
+})->name("gear.checkout.test");

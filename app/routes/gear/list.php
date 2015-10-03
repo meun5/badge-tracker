@@ -24,14 +24,16 @@ $app->post('/gear/list', function () use ($app) {
     $v->validate([
         "id" => [$post["id"], 'required|int|min(2)']
     ]);
+    $app->response->headers->set('Content-Type', 'application/json');
     if ($v->passes()) {
         $_SESSION[$app->config->get("checkout.session")] = $post["id"];
+        echo $v->constructArray(true, null, null, $app->urlFor("gear.checkout"), true);
+        return;
     }
-    $app->response->headers->set('Content-Type', 'application/json');
-
     echo $v->constructArray(
         isset($_SESSION[$app->config->get("checkout.session")]) ? true : false,
         ! is_null($v->errors()) ? $v->errors : null,
+        null,
         isset($_SESSION[$app->config->get("checkout.session")]) ? $app->urlFor("gear.checkout") : $app->urlFor("gear.list"),
         true);
 
