@@ -1,5 +1,8 @@
 $(document).ready(function () {
     $("#inputDate").datepicker();
+    $("#dateContainer").removeAttr('style');
+    $("#successContainer").removeAttr('style');
+
     $("#checkoutGear").submit(function (e) {
         var url = $(this).attr("action"),
            date = $("#inputDate").val(),
@@ -19,8 +22,7 @@ $(document).ready(function () {
             },
             success: function (v) {
                 if (v.success) {
-                    $("#modalContainer").removeAttr('style');
-                    $(':input','#addGear').not(':button, :submit, :reset, :hidden, select').val('').removeAttr('checked');
+                    $(':input','#addGear').not(':button, :submit, :reset, :hidden, select').val('');
                     $("#successModal").modal("show");
                 } else {
                     console.log(v);
@@ -33,7 +35,6 @@ $(document).ready(function () {
         var id = $(this).prop('id'),
             csrf = $("#check").prop("value");
 
-        $("#dateContainer").removeAttr('style');
         $("#dateModal").modal("show");
 
         $("#inDateForm").submit(function (e) {
@@ -54,8 +55,9 @@ $(document).ready(function () {
                 success: function (v) {
                     if (v.success) {
                         $("#dateModal").modal("hide");
-                        $("#modalContainer").removeAttr('style');
-                        $("#successModal").modal("show");
+                        $("body").delay(2000);
+                        alert("What");
+                        //$("#successModal").modal("show");
                     } else {
                         console.log(v);
                     }
