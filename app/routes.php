@@ -23,3 +23,6 @@ require INC_ROOT . '/app/routes/gear/checkout.php';
 
 //Gear Managment
 require INC_ROOT . '/app/routes/admin/gear/add.php';
+
+//Site Managment
+require INC_ROOT . '/app/routes/admin/site/settings.php';
