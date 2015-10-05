@@ -4,10 +4,11 @@
 
 {% block content %}
 <div class="inner cover">
-    <h1 class="cover-heading">Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a class="btn btn-lg btn-default" href="#">Learn more</a>
-    </p>
+    <img class="site-brand" src="{{ url.base }}/images/brand.jpg" height="180px" width="180px">
+    <h1 class="cover-heading">Troop 43</h1>
 </div>
+{% endblock %}
+
+{% block styles %}
+<link type="text/css" href="{{ url.base }}/css/home.css" rel="stylesheet">
 {% endblock %}
