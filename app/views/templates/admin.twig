@@ -30,16 +30,9 @@
     <div class="container-fluid">
         {% include 'templates/admin/sidebar.twig' %}
         {% block content %}{% endblock %}
-
-        
-    </div> 
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-            {% include 'templates/footer.twig' %}
-        </div>
-      </div>
+        {% include 'templates/footer.twig' %}
     </div>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
