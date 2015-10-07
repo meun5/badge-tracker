@@ -56,8 +56,7 @@ $(document).ready(function () {
                     if (v.success) {
                         $("#dateModal").modal("hide");
                         $("body").delay(2000);
-                        alert("What");
-                        //$("#successModal").modal("show");
+                        $("#successModal").modal("show");
                     } else {
                         console.log(v);
                     }
