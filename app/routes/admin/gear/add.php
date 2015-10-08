@@ -61,7 +61,7 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
         ]);
 
         if ($app->request->isAjax() && isset($create)) {
-            echo $v->constructArray(true, $app->urlFor("admin.gear.add"), null);
+            echo $v->constructArray(true, null, null, $app->urlFor("admin.gear.add"), true);
             return;
         } elseif (isset($create)) {
             $app->render('admin/gear/add.twig', [
@@ -72,7 +72,7 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
     }
     
     if ($app->request->isAjax()) {
-        echo $v->constructArray(false, $v->errors(), $app->urlFor("admin.gear.add"), null);
+        echo $v->constructArray(false, $v->errors(), null,$app->urlFor("admin.gear.add"), true);
         return;
     }
 
