@@ -17,9 +17,6 @@ $RECYCLE.BIN/
 # Composer Install Files
 vendor
 
-# Test Files
-tests
-
 # Image Files
 *.jpeg
 *.png
