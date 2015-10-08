@@ -6,19 +6,23 @@
 <div class="row">
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="container">
-            <form class="form-edit" method="POST" action="{{ urlFor('url.base') }}" id="fff">
-                {% set v = 0 %}
-                {% for key, i in settings %}
-                    <div>
-                        <p class="page-header">{{ key|capitalize }}</p>
+            <form class="form-edit" method="POST" action="{{ urlFor('admin.site.settings.edit.post') }}" id="form-edit">
+                <div class="form-container">
+                    {% for key, i in settings %}
+
+                    <p class="page-header">{{ key|capitalize }}</p>
                         {% set x = 0 %}
                         {% for sub, i in settings[key] %}
-                            <p class="item"><span>{{ sub|capitalize }}:</span> {{ settings[key][sub] }}</p>
+                        <div class="form-group">
+                            <p class="item">{{ sub|capitalize }}:</p> <input type="text" id="{{ key }}.{{ sub }}" name="{{ key }}_{{ sub }}" class="form-control" value="{{ settings[key][sub] }}">
+                        </div>
                         {% set x = x + 1%}
                         {% endfor %}
-                    </div>
-                {% set v = v + 1 %}
-                {% endfor %}
+
+                    {% endfor %}
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}" id="check">
             </form>
         </div>
     </div>

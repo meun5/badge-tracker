@@ -49,3 +49,9 @@ $app->get('/admin/settings/edit', $admin(), function () use ($app) {
         'settings' => $settings,
     ]);
 })->name("admin.site.settings.edit");
+
+$app->post("/admin/settings/edit", $admin(), function () use ($app) {
+    $app->response->headers->set("Content-Type", "application/json");
+    echo json_encode($app->request->post());
+    return;
+})->name("admin.site.settings.edit.post");

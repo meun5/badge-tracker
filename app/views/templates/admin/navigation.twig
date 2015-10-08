@@ -11,8 +11,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="{{ urlFor('admin.site.settings') }}">Settings</a></li>
+        <li {% if '/admin' == url.current %} class="active" {% endif %}><a href="">Dashboard</a></li>
+        <li {% if '/settings' in url.current %} class="active" {% endif %}><a href="{{ urlFor('admin.site.settings') }}">Settings</a></li>
         <li><a href="{{ urlFor('auth.logout') }}">Logout</a></li>
         <li><a href="{{ urlFor('home') }}">Return to Site</a></li>
       </ul>
