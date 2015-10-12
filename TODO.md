@@ -12,3 +12,4 @@ Priority:
 3.
  * Remove unused code
  * Comments
+ * Logging
