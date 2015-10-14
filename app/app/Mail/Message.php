@@ -25,4 +25,13 @@ class Message
     {
         $this->mailer->Body = $body;
     }
+
+    public function attachment($attachment, $name, $mode = "string")
+    {
+        if ($mode === "string") {
+            $this->mailer->addStringAttachment($attachment, $name);
+        } elseif ($mode === "file") {
+            $this->mailer->AddAttachment($attachment, $name);
+        }
+    }
 }
