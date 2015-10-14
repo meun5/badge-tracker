@@ -36,10 +36,10 @@
                         {% set x = false %}
                         {% set n = 0 %}
                         {% for i in gear[v].checkout_history %}
-                            {% if gear[v].checkout_history[n].dateOut and gear[v].checkout_history[n].dateIn is not empty %}
+                            {% if gear[v].checkout_history[n].dateOut is not empty and gear[v].checkout_history[n].dateIn is empty %}
                                 {% set x = true %}
-                                {% set n = n + 1 %}
                             {% endif %}
+                            {% set n = n + 1 %}
                         {% endfor %}
                         {% if x == true %}
                             <span class="yes">Yes</span>
