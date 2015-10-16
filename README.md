@@ -1,5 +1,5 @@
 # Merit Badge Tracker
-A small merit badge tracking system written in PHP and Twig
+A small merit badge tracking system written in PHP, Slim and Twig
 
 This was originally written for Troop43 in Urbandale, Iowa
 
@@ -9,7 +9,7 @@ The application requires:
 
 1. PHP Version 5.6 or greater or HHVM 3.6 or greater
 2. MySQL Server version 5.6 or greater
-3. Nginx or Apache or someother webserver capable of interacting with the PHP Interpreter.
+3. Nginx or Apache capable of interacting with the PHP Interpreter.
 
 Installation
 -----------
