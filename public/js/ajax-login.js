@@ -44,7 +44,7 @@ $(document).ready(function () {
                         $("#loginModal").modal("hide");
                         setTimeout(function () {
                             location.reload();
-                        }, 2000);
+                        }, 500);
                     }, 3000);
                 } else {
                     error(response);
