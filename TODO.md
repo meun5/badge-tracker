@@ -1,10 +1,10 @@
 Priority:  
 1.
- * Finish the nessacary functions
+ * **Finish the necessary functions**
 
 2.
  * Write Unit Tests
- * Implement Report emailing
+ * *Implement Report emailing*
  * Clean up Javascript
  * Clean up CSS
  * Cross Browser Compatiblity
