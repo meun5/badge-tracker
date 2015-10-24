@@ -13,3 +13,7 @@ Priority:
  * Remove unused code
  * Comments
  * Logging
+
+*Italicized* items are currently being worked on.
+**Bold** items are top priority.
+~~Strikethrough~~ items are done.
