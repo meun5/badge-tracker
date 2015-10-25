@@ -8,7 +8,7 @@
     {% if gear.checkout_history[v].dateOut and gear.checkout_history[v].dateIn is empty %}
         {% set x = x - 1 %}
     {% endif %}
-    {% set v = v+ 1 %}
+    {% set v = v + 1 %}
 {% endfor %}
 
 {% block content %}
