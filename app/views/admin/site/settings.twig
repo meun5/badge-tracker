@@ -3,24 +3,20 @@
 {% block title %}Site Settings{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <div class="container">
-            {% set v = 0 %}
-            {% for key, i in settings %}
-                <div>
-                    <p class="page-header">{{ key|capitalize }}</p>
-                    {% set x = 0 %}
-                    {% for sub, i in settings[key] %}
-                        <p class="item"><span>{{ sub|capitalize }}:</span> {{ settings[key][sub] }}</p>
-                    {% set x = x + 1%}
-                    {% endfor %}
-                </div>
-            {% set v = v + 1 %}
+<div class="container">
+    {% set v = 0 %}
+    {% for key, i in settings %}
+        <div>
+            <p class="page-header">{{ key|capitalize }}</p>
+            {% set x = 0 %}
+            {% for sub, i in settings[key] %}
+                <p class="item"><span>{{ sub|capitalize }}:</span> {{ settings[key][sub] }}</p>
+            {% set x = x + 1%}
             {% endfor %}
-            {{dump(settings)}}
         </div>
-    </div>
+    {% set v = v + 1 %}
+    {% endfor %}
+    {{dump(settings)}}
 </div>
 {% endblock %}
 

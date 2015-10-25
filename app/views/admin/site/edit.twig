@@ -3,29 +3,25 @@
 {% block title %}Site Settings{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <div class="container">
-            <form class="form-edit" method="POST" action="{{ urlFor('admin.site.settings.edit.post') }}" id="form-edit">
-                <div class="form-container">
-                    {% for key, i in settings %}
+<div class="container">
+    <form class="form-edit" method="POST" action="{{ urlFor('admin.site.settings.edit.post') }}" id="form-edit">
+        <div class="form-container">
+            {% for key, i in settings %}
 
-                    <p class="page-header">{{ key|capitalize }}</p>
-                        {% set x = 0 %}
-                        {% for sub, i in settings[key] %}
-                        <div class="form-group">
-                            <p class="item">{{ sub|capitalize }}:</p> <input type="text" id="{{ key }}.{{ sub }}" name="{{ key }}_{{ sub }}" class="form-control" value="{{ settings[key][sub] }}">
-                        </div>
-                        {% set x = x + 1%}
-                        {% endfor %}
-
-                    {% endfor %}
+            <p class="page-header">{{ key|capitalize }}</p>
+                {% set x = 0 %}
+                {% for sub, i in settings[key] %}
+                <div class="form-group">
+                    <p class="item">{{ sub|capitalize }}:</p> <input type="text" id="{{ key }}.{{ sub }}" name="{{ key }}_{{ sub }}" class="form-control" value="{{ settings[key][sub] }}">
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-                <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}" id="check">
-            </form>
+                {% set x = x + 1%}
+                {% endfor %}
+
+            {% endfor %}
         </div>
-    </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}" id="check">
+    </form>
 </div>
 {% endblock %}
 
