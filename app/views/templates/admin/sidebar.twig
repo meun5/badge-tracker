@@ -3,7 +3,7 @@
     <li {% if url.current == '/admin' %} class="active" {% endif %}><a href="#">Overview <span class="sr-only">(current)</span></a></li>
     <li><a href="#">Reports</a></li>
     <li><a href="#">Analytics</a></li>
-    <li><a href="#">Export</a></li>
+    <li {% if '/admin/export' in url.current %} class="active" {% endif %}><a href="{{ urlFor('admin.gear.export') }}">Export</a></li>
   </ul>
   <ul class="nav nav-sidebar">
     <li {% if '/admin/gear' in url.current %} class="active" {% endif %}><a href="{{ urlFor('admin.gear.add') }}">Add Gear</a></li>
