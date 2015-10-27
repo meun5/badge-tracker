@@ -7,7 +7,7 @@ Requirements
 -----------
 The application requires:
 
-1. PHP Version 5.6 or greater or HHVM 3.6 or greater
+1. PHP Version 5.6 or greater or HHVM 3.8 ("McQueen") or greater
 2. MySQL Server version 5.6 or greater
 3. Nginx or Apache capable of interacting with the PHP Interpreter.
 
