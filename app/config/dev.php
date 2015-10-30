@@ -10,7 +10,7 @@ return [
             'algo'  => PASSWORD_BCRYPT,
             'cost'  => 10,
         ],
-        'webmaster' => 'clamy4@msn.com',
+        'webmaster' => 'webmaster@example.org',
     ],
 
     'db'    => [
@@ -47,7 +47,7 @@ return [
         'key'   => 'csrf_token',
     ],
 
-    'checkout' => [
-        'session' => 'checkout_session',
+    "excel" => [
+        "cache_session" => 'excel_cache',
     ],
 ];

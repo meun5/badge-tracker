@@ -2,15 +2,15 @@
 
 return [
     'app'   => [
-        'url'       => 'http://localhost/scout-merit/public',
+        'url'       => 'http://localhost/',
         'name'      => 'Merit-Tracker',
-        'version'   => '0.1.3.2',
+        'version'   => '0.1.4.4',
         'author'    => 'Alex Young',
         'hash'  => [
             'algo'  => PASSWORD_BCRYPT,
             'cost'  => 15,
         ],
-        'webmaster' => 'clamy4@msn.com',
+        'webmaster' => 'webmaster@example.org',
     ],
 
     'db'    => [
@@ -47,7 +47,7 @@ return [
         'key'   => 'csrf_token',
     ],
 
-    'checkout' => [
-        'session' => 'checkout_session',
+    "excel" => [
+        "cache_session" => 'excel_cache',
     ],
 ];
