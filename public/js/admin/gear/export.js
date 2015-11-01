@@ -31,6 +31,7 @@ $(document).ready(function () {
                         setTimeout(function () {
                             console.log(response.callback);
                             $.fileDownload(response.callback);
+                            $(".transit-image").remove();
                         }, 500);
                     }, 2000);
                 } else {
