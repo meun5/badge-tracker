@@ -56,6 +56,8 @@ class Excel
                 $message->attachment($mail["excel"], "Report.xlsx", "string");
             }
         );
+
+        return true;
     }
 
     protected function genCellData()

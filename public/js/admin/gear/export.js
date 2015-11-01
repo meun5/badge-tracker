@@ -18,8 +18,10 @@ $(document).ready(function () {
             dataType: "json",
             data: post,
             beforeSend: function () {
-                $(".modal-footer").add('<span style="height: 50px; width: 50px;" class="image-holder"><img src="' + domain + '/images/auth/beforeSend.svg" height="50px;" width="50px;" alt="Transit Image" class="transit-image"></span>').appendTo($(".modal-footer"));
-                $(".image-holder").prop("style", "display: inline;");
+                if ($(".transit-image").length <= 0) {
+                    $(".image-holder").add('<img src="' + domain + '/images/auth/beforeSend.svg" height="50px;" width="50px;" alt="Transit Image" class="transit-image">').appendTo($(".image-holder"));
+                    $(".image-holder").prop("style", "display: inline;");
+                }
             },
             success: function (response) {
                 if (response.success) {

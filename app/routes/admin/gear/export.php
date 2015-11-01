@@ -28,6 +28,13 @@ $app->post("/admin/export", $admin, function () use ($app) {
         $gear = $app->gear->where("id", $post["id"])->first();
         if ($post["download"] === "email") {
             $app->excel->sendGearReport($gear, $post["email"]);
+            echo json_encode([
+                "success" => true,
+                "errors" => [],
+                "callback" => "",
+                "url" => $app->urlFor("admin.gear.export"),
+            ]);
+            return;
         } elseif ($post["download"] === "file") {
             $excel = $app->excel->sendGearReport($gear, false);
         }
@@ -36,7 +43,7 @@ $app->post("/admin/export", $admin, function () use ($app) {
         return;
     }
 
-    if ($excel) {
+    if (isset($excel)) {
         $_SESSION[$app->config->get("excel.cache_session")] = serialize($excel);
         echo json_encode([
             "success" => true,
