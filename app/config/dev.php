@@ -2,22 +2,23 @@
 
 return [
     'app'   => [
-        'url'   => 'http://localhost/',
-        'name'   => 'Merit-Tracker',
-        'version'   => '0.1.3.2',
-        'author'   => 'Alex Young',
-        'hash'  => [
+        'url'       => 'http://localhost/',
+        'name'      => 'Merit-Tracker',
+        'version'   => '0.1.4.4',
+        'author'    => 'Alex Young',
+        'hash' => [
             'algo'  => PASSWORD_BCRYPT,
             'cost'  => 10,
         ],
         'webmaster' => 'webmaster@example.org',
+        'timezone'  => ini_get('date.timezone') ? ini_get('date.timezone') : 'America/Chicago', /* See http://php.net/manual/en/timezones.php for the setting that corresponds to where you server is operating. */
     ],
 
     'db'    => [
         'driver'    => 'mysql',
         'host'      => 'localhost',
         'name'      => 'database-name',
-        'username'  => 'meun5',
+        'username'  => 'username',
         'password'  => 'password',
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',

@@ -41,6 +41,8 @@ $app->configureMode($app->config('mode'), function () use ($app) {
     $app->config = Config::load(INC_ROOT . "/app/config/{$app->mode}.php");
 });
 
+date_default_timezone_set($app->config->get("app.timezone"));
+
 require 'database.php';
 require 'filters.php';
 require 'routes.php';

@@ -11,6 +11,7 @@ return [
             'cost'  => 15,
         ],
         'webmaster' => 'webmaster@example.org',
+        'timezone'  => ini_get('date.timezone') ? ini_get('date.timezone') : 'America/Chicago', /* See http://php.net/manual/en/timezones.php for the setting that corresponds to where you server is operating. */
     ],
 
     'db'    => [
