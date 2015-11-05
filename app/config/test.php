@@ -38,6 +38,7 @@ return [
         'password'      => 'password',
         'port'          => 587,
         'html'          => true,
+        'debug'         => 2,
     ],
 
     'twig'  => [

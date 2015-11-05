@@ -87,7 +87,7 @@ $app->container->singleton('mail', function () use ($app) {
     $mailer->setFrom($app->config->get('app.webmaster'), $_SERVER["SERVER_SOFTWARE"]);
     $mailer->Username = $app->config->get('mail.username');
     $mailer->Password = $app->config->get('mail.password');
-    $mailer->SMTPDebug = 2;
+    $mailer->SMTPDebug = $app->config->get('mail.debug');
 
     $mailer->isHTML($app->config->get('mail.html'));
 
