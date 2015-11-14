@@ -2,10 +2,11 @@
 
 {% block scripts %}
 <script type="text/javascript" src="{{ url.base }}/js/auth/login.js"></script>
+<script type="text/javascript" src="{{ url.base }}/js/form.js"></script>
 {% endblock %}
 
 {% block content %}
-  <form class="form-signin" method="POST" action="{{ urlFor('auth.login.post') }}" id="login">
+  <form class="form-signin doPost" method="POST" action="{{ urlFor('auth.login.post') }}" id="login">
     <h2 class="form-signin-heading">Please sign in</h2>
       <div class="form-group">
         <label for="inputUser" class="sr-only">Username</label>
