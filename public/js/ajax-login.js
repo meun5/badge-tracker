@@ -9,7 +9,7 @@ function onLoad() {
             },
         callback: function (e) {
                 if (e.success) {
-                    $(".login-image").prop('src', $(".ajax-login").attr('data-url'); + "/images/auth/success.svg");
+                    $(".login-image").prop('src', $(".ajax-login").attr('data-url') + "/images/auth/success.svg");
                     setTimeout(function () {
                         $("#loginModal").modal("hide");
                         setTimeout(function () {

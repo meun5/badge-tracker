@@ -16,7 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ url.base }}/css/cover.css" rel="stylesheet" type="text/css">
 
-    {% if auth == null and url.current != '/login' %}
+    {% if auth == null and url.current != '/login' and url.current != '/register' %}
     <link href="{{ url.base }}/css/default.css" rel="stylesheet" type="text/css">
     {% endif %}
 
@@ -38,7 +38,9 @@
 
     {% include 'templates/footer.twig' %}
 
-    {% if auth == null and url.current != '/login' %}
+    {% block afterfooter %}{% endblock %}
+
+    {% if auth == null and url.current != '/login' and url.current != '/register' %}
     <div class="container" style="display: none;" id="modalContainer">
 
       <!-- Modal -->
@@ -88,7 +90,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ url.base }}/js/ie10-viewport-bug-workaround.js"></script>
 
-    {% if auth == null and url.current != '/login' %}
+    {% if auth == null and url.current != '/login' and url.current != '/register' %}
     <script src="{{ url.base }}/js/ajax-login.js" class="ajax-login" type="text/javascript" data-url="{{ url.base }}"></script>
     <script type="text/javascript" src="{{ url.base }}/js/form.js"></script>
     {% endif %}
