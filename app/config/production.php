@@ -3,9 +3,6 @@
 return [
     'app'   => [
         'url'       => 'http://example.org',
-        'name'      => 'Merit-Tracker',
-        'version'   => '0.1.4.4',
-        'author'    => 'Alex Young',
         'hash'  => [
             'algo'  => PASSWORD_BCRYPT,
             'cost'  => 25,

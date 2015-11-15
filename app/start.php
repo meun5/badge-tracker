@@ -24,6 +24,8 @@ use app\MiddleWare\CsrfMiddleWare;
 session_cache_limiter(false);
 session_start();
 
+$APP_INFO =  ["name" => "Merit-Tracker", "version" => "0.1.4.4", "author" => "Alexander Young"];
+
 define('INC_ROOT', dirname(__DIR__));
 
 require INC_ROOT . '/vendor/autoload.php';
@@ -31,7 +33,8 @@ require INC_ROOT . '/vendor/autoload.php';
 $app = new Slim([
     'mode' => implode('', file(INC_ROOT . '/mode.php', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)),
     'view' => new Twig(),
-    'templates.path' => INC_ROOT . '/app/views'
+    'templates.path' => INC_ROOT . '/app/views',
+    'info' => $APP_INFO,
 ]);
 
 $app->add(new BeforeMiddleWare);
@@ -62,6 +65,10 @@ $app->container->set('metadata', function () {
 
 $app->container->set('gear', function () {
     return new Gear;
+});
+
+$app->container->set('events', function () {
+    return new Event;
 });
 
 $app->container->singleton('hash', function () use ($app) {

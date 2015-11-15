@@ -7,8 +7,12 @@ use Exception;
 
 class BeforeMiddleWare extends Middleware
 {
+    private $info;
+
     public function call()
     {
+        $this->info = $this->app->config('info');
+
         $this->app->hook('slim.before', [$this, 'run']);
 
         $this->next->call();
@@ -33,9 +37,9 @@ class BeforeMiddleWare extends Middleware
                 'current'   => $this->app->request->getPathInfo(),
             ],
             'app' => [
-                'version' => $this->app->config->get('app.version'),
-                'name' => $this->app->config->get('app.name'),
-                'author' => $this->app->config->get('app.author'),
+                'version' => $this->info["version"],
+                'name' => $this->info["name"],
+                'author' => $this->info["author"],
             ],         
         ]);
     }
