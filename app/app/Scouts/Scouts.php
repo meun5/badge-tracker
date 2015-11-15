@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Scouts extends Eloquent
 {
-    protected $table = 'tr_scouts';
+    protected $table = 'scouts';
 
     protected $fillable = [
         'name',

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class User extends Eloquent
 {
-    protected $table = 'tr_users';
+    protected $table = 'users';
 
     protected $fillable = [
         'email',

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class UserPermission extends Eloquent
 {
-    protected $table = 'tr_permissions';
+    protected $table = 'permissions';
 
     protected $fillable = [
         'is_admin',

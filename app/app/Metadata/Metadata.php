@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Metadata extends Eloquent
 {
-    protected $table = 'tr_metadata';
+    protected $table = 'metadata';
 
     protected $fillable = [
         'name',

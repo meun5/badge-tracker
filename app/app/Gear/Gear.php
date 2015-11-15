@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Gear extends Eloquent
 {
-    protected $table = 'tr_gear';
+    protected $table = 'gear';
 
     protected $fillable = [
         'name',
