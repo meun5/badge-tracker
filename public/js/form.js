@@ -35,7 +35,7 @@ $(document).ready(function () {
             };
 
         var override = onLoad(), sendOut = {};
-        $(this).find("input").each(function (e) {
+        $(this).find("input, textarea").each(function (e) {
             console.info(this);
             if (this.type == "checkbox") {
                 sendOut[this.name] = $(this).prop("checked");
