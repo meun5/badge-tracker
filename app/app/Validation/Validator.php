@@ -25,27 +25,27 @@ class Validator extends Violin
 
 
         $this->addFieldMessages([
-            'email' => [
-                'uniqueEmail' => 'That email is already in use.'
+            "email" => [
+                "uniqueEmail" => "That email is already in use."
             ],
 
-            'username' => [
-                'uniqueUsername' => 'That username is already in use.'
+            "username" => [
+                "uniqueUsername" => "That username is already in use."
             ],
-            'not_null' => [
-                'not_null' => 'That variable is null.'
+            "not_null" => [
+                "not_null" => "That variable is null."
             ]
         ]);
 
         $this->addRuleMessages([
-            'matchesCurrentPassword'=> 'That does not match your current password.',
-            'alnumDashSpc' => '{field} must be alphanumeric with dashes underscores, and spaces permitted.'
+            "matchesCurrentPassword"=> "That does not match your current password.",
+            "alnumDashSpc" => "{field} must be alphanumeric with dashes underscores, and spaces permitted."
         ]);
     }
 
     public function validate_uniqueEmail($value, $input, $args)
     {
-        $user = $this->user->where('email', $value);
+        $user = $this->user->where("email", $value);
 
         if ($this->auth && $this->auth->email === $value) {
             return true;
@@ -56,7 +56,7 @@ class Validator extends Violin
 
     public function validate_uniqueUsername($value, $input, $args)
     {
-        return ! (bool) $this->user->where('username', $value)->count();
+        return ! (bool) $this->user->where("username", $value)->count();
     }
 
     public function validate_matchesCurrentPassword($value, $input, $args)
@@ -75,7 +75,7 @@ class Validator extends Violin
 
     public function validate_alnumDashSpc($value, $input, $args)
     {
-        return (bool) preg_match('/^[\s\pL\pM\pN_-]+$/u', $value);
+        return (bool) preg_match("/^[\s\pL\pM\pN_-]+$/u", $value);
     }
 
     public function constructArray($success = true, $validationErrors = null, $otherErrors = null, $url, $json = true)

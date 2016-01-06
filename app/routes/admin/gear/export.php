@@ -1,12 +1,12 @@
 <?php
 
 $app->get("/admin/export", $admin(), function () use ($app) {
-    $gear = $app->gear->where('enabled', true)->get();
+    $gear = $app->gear->where("enabled", true)->get();
 
-    $app->render('admin/gear/export.twig', [
-        'gear' => $gear,
+    $app->render("admin/gear/export.twig", [
+        "gear" => $gear,
     ]);
-})->name('admin.gear.export');
+})->name("admin.gear.export");
 
 $app->post("/admin/export", $admin, function () use ($app) {
     $post = $app->request->post();
@@ -14,8 +14,8 @@ $app->post("/admin/export", $admin, function () use ($app) {
     $v = $app->validation;
 
     $validate_data = [
-        "download" => [$post["download"], 'required|not_null|alpha'],
-        "id" => [$post["id"], 'required|not_null|int'],
+        "download" => [$post["download"], "required|not_null|alpha"],
+        "id" => [$post["id"], "required|not_null|int"],
     ];
 
     if (isset($post["email"]) && $post["download"] == "email") {
@@ -54,18 +54,18 @@ $app->post("/admin/export", $admin, function () use ($app) {
     }
 
     return;
-})->name('admin.gear.export.post');
+})->name("admin.gear.export.post");
 
 $app->get("/admin/download/report", $admin(), function () use ($app) {
     $excel = unserialize($_SESSION[$app->config->get("excel.cache_session")]);
-    $app->response->headers->set('Set-Cookie', 'fileDownload=true; path=/');
-    $app->response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    $app->response->headers->set('Content-Disposition', 'attachment;filename="Report.xlsx"');
-    $app->response->headers->set('Cache-Control', 'max-age=0');
+    $app->response->headers->set("Set-Cookie", "fileDownload=true; path=/");
+    $app->response->headers->set("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+    $app->response->headers->set("Content-Disposition", "attachment;filename="Report.xlsx"");
+    $app->response->headers->set("Cache-Control", "max-age=0");
 
-    $objWriter = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
-    $objWriter->save('php://output');
+    $objWriter = PHPExcel_IOFactory::createWriter($excel, "Excel2007");
+    $objWriter->save("php://output");
 
     unset($_SESSION[$app->config->get("excel.cache_session")]);
     return;
-})->name('admin.gear.export.get');
+})->name("admin.gear.export.get");

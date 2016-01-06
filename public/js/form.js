@@ -2,7 +2,7 @@ if("undefined"==typeof jQuery)throw new Error("form.js requires jQuery");
 +function(a){"use strict";var b=a.fn.jquery.split(" ")[0].split(".");if(b[0]<2&&b[1]<9||1==b[0]&&9==b[1]&&b[2]<1)throw new Error("form.js requires jQuery version 1.9.1 or higher")}(jQuery)
 
 function doPost(action, data, type, dataType, callback, beforeSend) {
-    'use strict';
+    "use strict";
 
     $.ajax({
         url: action,
@@ -48,7 +48,7 @@ $(document).ready(function () {
         if (!$.isEmptyObject(sendOut)) {
             defaults.data = sendOut;
         } else {
-            throw new Error('No fields found!');
+            throw new Error("No fields found!");
         }
 
         if ($.isFunction(override.callback)) {
@@ -59,7 +59,7 @@ $(document).ready(function () {
             defaults.beforeSend = override.beforeSend;
         }
 
-        if (typeof override.returnType !== 'undefined') {
+        if (typeof override.returnType !== "undefined") {
             switch (override.returnType) {
                 case "url":
                     defaults.dataType = "text";

@@ -15,8 +15,8 @@ class Hash
     {
         return password_hash(
             $password,
-            $this->config->get('app.hash.algo'),
-            ['cost' => $this->config->get('app.hash.cost')]
+            $this->config->get("app.hash.algo"),
+            ["cost" => $this->config->get("app.hash.cost")]
         );
     }
 
@@ -27,7 +27,7 @@ class Hash
 
     public function hash($input)
     {
-        return hash('sha256', $input);
+        return hash("sha256", $input);
     }
 
     public function hashCheck($known, $user)

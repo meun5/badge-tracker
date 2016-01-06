@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#inputDate").datepicker();
-    $("#dateContainer").removeAttr('style');
-    $("#successContainer").removeAttr('style');
+    $("#dateContainer").removeAttr("style");
+    $("#successContainer").removeAttr("style");
 
     $("#checkoutGear").submit(function (e) {
         var url = $(this).attr("action"),
@@ -22,7 +22,7 @@ $(document).ready(function () {
             },
             success: function (v) {
                 if (v.success) {
-                    $(':input','#addGear').not(':button, :submit, :reset, :hidden, select').val('');
+                    $(":input","#addGear").not(":button, :submit, :reset, :hidden, select").val("");
                     $("#successModal").modal("show");
                 } else {
                     console.log(v);
@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
     $(".inline-span").click(function () {
         $("#inDate").datepicker();
-        var id = $(this).prop('id'),
+        var id = $(this).prop("id"),
             csrf = $("#check").prop("value");
 
         $("#dateModal").modal("show");
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 inName = $("#inName").val();
 
             $.ajax({
-                url: $(".form-add").attr('action'),
+                url: $(".form-add").attr("action"),
                 type: "POST",
                 dataType: "json",
                 data: {

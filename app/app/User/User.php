@@ -6,21 +6,21 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class User extends Eloquent
 {
-    protected $table = 'users';
+    protected $table = "users";
 
     protected $fillable = [
-        'email',
-        'username',
-        'password',
-        'first_name',
-        'last_name',
-        'active',
-        'active_hash',
-        'recover_hash',
-        'remember_identifier',
-        'remember_token',
-        'update_email',
-        'update_token',
+        "email",
+        "username",
+        "password",
+        "first_name",
+        "last_name",
+        "active",
+        "active_hash",
+        "recover_hash",
+        "remember_identifier",
+        "remember_token",
+        "update_email",
+        "update_token",
     ];
 
     public function getFullName()
@@ -40,16 +40,16 @@ class User extends Eloquent
     public function activateAccount()
     {
         $this->update([
-            'active' => true,
-            'active_hash' => null
+            "active" => true,
+            "active_hash" => null
         ]);
     }
 
     public function updateRememberCredentials($identifier, $token)
     {
         $this->update([
-            'remember_identifier' => $identifier,
-            'remember_token' => $token
+            "remember_identifier" => $identifier,
+            "remember_token" => $token
         ]);
     }
 
@@ -65,11 +65,11 @@ class User extends Eloquent
 
     public function isAdmin()
     {
-        return $this->hasPermission('is_admin');
+        return $this->hasPermission("is_admin");
     }
 
     public function permissions()
     {
-        return $this->hasOne('app\User\UserPermission', 'user_id');
+        return $this->hasOne("app\User\UserPermission", "user_id");
     }
 }

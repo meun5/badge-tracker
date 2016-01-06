@@ -1,8 +1,8 @@
 $(document).ready(function () {
    $(".checkurl").click(function () {
        var url = window.location.href,
-           id = $(this).prop('id'),
-           csrf = $(".post").prop('id');
+           id = $(this).prop("id"),
+           csrf = $(".post").prop("id");
 
        $.ajax({
            url: url,
@@ -16,7 +16,7 @@ $(document).ready(function () {
                if (v.success) {
                    console.info(v.success);
                    console.log(v);
-                   $(location).attr('href', v.url);
+                   $(location).attr("href", v.url);
                } else {
                    console.log(v);
                }

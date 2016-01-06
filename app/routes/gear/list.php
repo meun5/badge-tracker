@@ -1,6 +1,6 @@
 <?php
 
-$app->get('/gear/list', function () use ($app) {
+$app->get("/gear/list", function () use ($app) {
     $allgear = $app->gear->getAll();
 
     $x = 0;
@@ -9,12 +9,12 @@ $app->get('/gear/list', function () use ($app) {
         $x++;
     }
 
-    $app->render('/gear/list.twig', [
-        'gear' => json_decode($allgear),
+    $app->render("/gear/list.twig", [
+        "gear" => json_decode($allgear),
     ]);
 })->name("gear.list");
 
-$app->post('/gear/list', function () use ($app) {
+$app->post("/gear/list", function () use ($app) {
     if(isset($_SESSION[$app->config->get("checkout.session")])) { unset($_SESSION[$app->config->get("checkout.session")]); }
 
     $post = $app->request->post();
@@ -22,9 +22,9 @@ $app->post('/gear/list', function () use ($app) {
     $v = $app->validation;
 
     $v->validate([
-        "id" => [$post["id"], 'required|int|min(2)']
+        "id" => [$post["id"], "required|int|min(2)"]
     ]);
-    $app->response->headers->set('Content-Type', 'application/json');
+    $app->response->headers->set("Content-Type", "application/json");
     if ($v->passes()) {
         $_SESSION[$app->config->get("checkout.session")] = $post["id"];
         echo $v->constructArray(true, null, null, $app->urlFor("gear.checkout"), true);

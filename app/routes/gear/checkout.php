@@ -1,7 +1,7 @@
 <?php
-$app->get('/gear/checkout', function () use ($app) {
+$app->get("/gear/checkout", function () use ($app) {
     if (isset($_SESSION[$app->config->get("checkout.session")])) {
-        $gear = $app->gear->where('id', $_SESSION[$app->config->get("checkout.session")])->first();
+        $gear = $app->gear->where("id", $_SESSION[$app->config->get("checkout.session")])->first();
     } else {
         return $app->response->redirect($app->urlFor("gear.list"));
     }
@@ -10,17 +10,17 @@ $app->get('/gear/checkout', function () use ($app) {
 
     $gear["checkout_history"] = $json;
 
-    $app->render('/gear/checkout.twig', [
-        'gear' => $gear,
+    $app->render("/gear/checkout.twig", [
+        "gear" => $gear,
     ]);
 })->name("gear.checkout");
 
-$app->post('/gear/checkout', function () use ($app) {
-    $gear = $app->gear->where('id', $_SESSION[$app->config->get("checkout.session")])->first();
+$app->post("/gear/checkout", function () use ($app) {
+    $gear = $app->gear->where("id", $_SESSION[$app->config->get("checkout.session")])->first();
     $post = $app->request->post();
 
     if ($app->request->isAjax()) {
-        $app->response->headers->set('Content-Type', 'application/json');
+        $app->response->headers->set("Content-Type", "application/json");
     }
 
     $json = json_decode($gear["checkout_history"]);
@@ -31,21 +31,21 @@ $app->post('/gear/checkout', function () use ($app) {
         $mode = "out";
 
         $v->validate([
-            "inputDate" => [$post["inputDate"], 'required|date|not_null'],
-            "inputCheckOutName" => [$post["inputCheckOutName"], 'required|not_null'],
+            "inputDate" => [$post["inputDate"], "required|date|not_null"],
+            "inputCheckOutName" => [$post["inputCheckOutName"], "required|not_null"],
         ]);
     } elseif (isset($post["inputDateIn"]) && isset($post["inputCheckInName"])) {
         $mode = "in";
 
         $v->validate([
-            "inputDateIn" => [$post["inputDateIn"], 'required|date|not_null'],
-            "inputCheckInName" => [$post["inputCheckInName"], 'required|not_null'],
-            "id" => [$post["inputCheckInName"], 'required|not_null']
+            "inputDateIn" => [$post["inputDateIn"], "required|date|not_null"],
+            "inputCheckInName" => [$post["inputCheckInName"], "required|not_null"],
+            "id" => [$post["inputCheckInName"], "required|not_null"]
         ]);
     }
 
     if ($v->passes()) {
-        if ($mode == 'in') {
+        if ($mode == "in") {
             $json[$post["id"]] = [
                 "name" => $json[$post["id"]]->name,
                 "dateOut" => $json[$post["id"]]->dateOut,
@@ -60,7 +60,7 @@ $app->post('/gear/checkout', function () use ($app) {
             }
             echo $v->constructArray(false, null, "Process Error", $app->urlFor("gear.checkout"), true);
             return;
-        } elseif ($mode == 'out') {
+        } elseif ($mode == "out") {
             $json[] = [
                 "name" => $post["inputCheckOutName"],
                 "dateOut" => $post["inputDate"],
@@ -83,18 +83,3 @@ $app->post('/gear/checkout', function () use ($app) {
     }
     return;
 })->name("gear.checkout.post");
-
-$app->get('/gear/checkout/test', function () use ($app) {
-    $v = $app->validation;
-
-    $v->validate([
-        "in" => ["steve", 'max(3)'],
-    ]);
-
-    var_dump($v->errors());
-
-    echo "<br>";
-    echo "<br>";
-
-    var_dump($v->constructArray(false, $v->errors(), null, $app->urlFor("home"), false));
-})->name("gear.checkout.test");

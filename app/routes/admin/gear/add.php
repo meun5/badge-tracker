@@ -1,29 +1,29 @@
 <?php
 
-$app->get('/admin/gear/add', $admin(), function () use ($app) {
-    $app->render('admin/gear/add.twig');
+$app->get("/admin/gear/add", $admin(), function () use ($app) {
+    $app->render("admin/gear/add.twig");
 })->name("admin.gear.add");
 
-$app->post('/admin/gear/add', $admin(), function () use ($app) {
+$app->post("/admin/gear/add", $admin(), function () use ($app) {
     $gear = $app->gear;
     $post = $app->request->post();
 
     if ($app->request->isAjax()) {
-        $app->response->headers->set('Content-Type', 'application/json');
+        $app->response->headers->set("Content-Type", "application/json");
     }
 
     $v = $app->validation;
 
     $validate = [
-        "inputName" => [$post["inputName"], 'required|alnumDashSpc|not_null'],
-        "inputAmount" => [$post["inputAmount"], 'required|int|not_null'],
-        "inputBrand" => [$post["inputBrand"], 'required|alnumDashSpc|not_null'],
-        "inputSerial" => [$post["inputSerial"], 'alnumDash|not_null'],
-        "inputStatus" => [$post["inputStatus"], 'required|alpha|not_null'],
+        "inputName" => [$post["inputName"], "required|alnumDashSpc|not_null"],
+        "inputAmount" => [$post["inputAmount"], "required|int|not_null"],
+        "inputBrand" => [$post["inputBrand"], "required|alnumDashSpc|not_null"],
+        "inputSerial" => [$post["inputSerial"], "alnumDash|not_null"],
+        "inputStatus" => [$post["inputStatus"], "required|alpha|not_null"],
     ];
 
-    if ($post["inputStatus"] === 'other') {
-        $validate["inputStatusOther"] = [$post["inputStatusOther"], 'required|alpha|not_null'];
+    if ($post["inputStatus"] === "other") {
+        $validate["inputStatusOther"] = [$post["inputStatusOther"], "required|alpha|not_null"];
     }
 
     $v->validate($validate);
@@ -32,8 +32,8 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
         if (isset($post["inputCheckOut"])) {
             if ($post["inputCheckOut"] === "on") {
                 $v->validate([
-                    "inputDate" => [$post["inputDate"], 'required|date|not_null'],
-                    "inputCheckOutName" => [$post["inputCheckOutName"], 'required|not_null'],
+                    "inputDate" => [$post["inputDate"], "required|date|not_null"],
+                    "inputCheckOutName" => [$post["inputCheckOutName"], "required|not_null"],
                 ]);
                 
                 if ($v->passes()) {
@@ -55,7 +55,7 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
             "brand" => $post["inputBrand"],
             "amount" => $post["inputAmount"],
             "serial" => $post["inputSerial"],
-            "status" => ($post["inputStatus"] === 'other') ? $post["inputStatusOther"] : $post["inputStatus"],
+            "status" => ($post["inputStatus"] === "other") ? $post["inputStatusOther"] : $post["inputStatus"],
             "enabled" => true,
             "checkout_history" => (isset($json)) ? $json : null,
         ]);
@@ -64,7 +64,7 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
             echo $v->constructArray(true, null, null, $app->urlFor("admin.gear.add"), true);
             return;
         } elseif (isset($create)) {
-            $app->render('admin/gear/add.twig', [
+            $app->render("admin/gear/add.twig", [
                 "success" => true,
             ]);
             return;
@@ -76,7 +76,7 @@ $app->post('/admin/gear/add', $admin(), function () use ($app) {
         return;
     }
 
-    $app->render('admin/gear/add.twig', [
+    $app->render("admin/gear/add.twig", [
         "success" => false,
         "errors" => $v->errors(),
     ]);

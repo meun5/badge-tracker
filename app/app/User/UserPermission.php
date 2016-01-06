@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class UserPermission extends Eloquent
 {
-    protected $table = 'permissions';
+    protected $table = "permissions";
 
     protected $fillable = [
-        'is_admin',
+        "is_admin",
     ];
 
     public static $defaults = [
-        'is_admin' => false,
+        "is_admin" => false,
     ];
 }

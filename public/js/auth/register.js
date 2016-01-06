@@ -1,14 +1,14 @@
 function onLoad() {
-    'use strict';
+    "use strict";
     var override = {
         callback: function (e) {
                 if (e.success !== true) {
                     console.info(e);
-                    $(".form-signin").parent().add('<p class="red" id="errors"></p>').appendTo($(".form-signin").parent());
+                    $(".form-signin").parent().add("<p class="red" id="errors"></p>").appendTo($(".form-signin").parent());
                     if (!$.isEmptyObject(e.errors)) {
                         console.log(e.errors);
                         $(e.errors).each(function (n) {
-                            $(".form-signin").parent().add('<p class="red" id="errors' + n + '"></p>').appendTo($(".form-signin").parent());
+                            $(".form-signin").parent().add("<p class="red" id="errors" + n + ""></p>").appendTo($(".form-signin").parent());
                             String.prototype.capitalizeFirstLetter = function() {
                                 return this.charAt(0).toUpperCase() + this.slice(1);
                             }

@@ -1,52 +1,52 @@
 <?php
 
 return [
-    'app'   => [
-        'url'       => 'http://localhost/',
-        'hash'  => [
-            'algo'  => PASSWORD_BCRYPT,
-            'cost'  => 15,
+    "app"   => [
+        "url"       => "http://localhost/",
+        "hash"  => [
+            "algo"  => PASSWORD_BCRYPT,
+            "cost"  => 15,
         ],
-        'webmaster' => 'webmaster@example.org',
-        'timezone'  => ini_get('date.timezone') ? ini_get('date.timezone') : 'America/Chicago', /* See http://php.net/manual/en/timezones.php for the setting that corresponds to where you server is operating. */
+        "webmaster" => "webmaster@example.org",
+        "timezone"  => ini_get("date.timezone") ? ini_get("date.timezone") : "America/Chicago", /* See http://php.net/manual/en/timezones.php for the setting that corresponds to where you server is operating. */
     ],
 
-    'db'    => [
-        'driver'    => 'mysql',
-        'host'      => 'localhost',
-        'name'      => 'testing',
-        'username'  => 'testinguser',
-        'password'  => 'Z7LBVnKjaK',
-        'charset'   => 'utf8',
-        'collation' => 'utf8_unicode_ci',
-        'prefix'    => 'tr_',
+    "db"    => [
+        "driver"    => "mysql",
+        "host"      => "localhost",
+        "name"      => "testing",
+        "username"  => "testinguser",
+        "password"  => "Z7LBVnKjaK",
+        "charset"   => "utf8",
+        "collation" => "utf8_unicode_ci",
+        "prefix"    => "tr_",
     ],
 
-    'auth'  => [
-        'session'   => 'user_id',
-        'remember'  => 'user_rem',
+    "auth"  => [
+        "session"   => "user_id",
+        "remember"  => "user_rem",
     ],
 
-    'mail'  => [
-        'smtp_auth'     => true,
-        'smtp_secure'   => 'tls',
-        'host'          => 'smtp.example.org',
-        'username'      => 'username@example.org',
-        'password'      => 'password',
-        'port'          => 587,
-        'html'          => true,
-        'debug'         => 2,
+    "mail"  => [
+        "smtp_auth"     => true,
+        "smtp_secure"   => "tls",
+        "host"          => "smtp.example.org",
+        "username"      => "username@example.org",
+        "password"      => "password",
+        "port"          => 587,
+        "html"          => true,
+        "debug"         => 2,
     ],
 
-    'twig'  => [
-        'debug'     => true,
+    "twig"  => [
+        "debug"     => true,
     ],
 
-    'csrf'  => [
-        'key'   => 'csrf_token',
+    "csrf"  => [
+        "key"   => "csrf_token",
     ],
 
     "excel" => [
-        "cache_session" => 'excel_cache',
+        "cache_session" => "excel_cache",
     ],
 ];

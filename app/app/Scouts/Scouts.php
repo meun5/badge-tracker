@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Scouts extends Eloquent
 {
-    protected $table = 'scouts';
+    protected $table = "scouts";
 
     protected $fillable = [
-        'name',
-        'active',
-        'merit_badge',
-        'partial_badge',
-        'rank',
-        'metadata',
+        "name",
+        "active",
+        "merit_badge",
+        "partial_badge",
+        "rank",
+        "metadata",
     ];
 
 }

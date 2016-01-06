@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#inputDate").datepicker();
     $("#inputCheckOut").change(function () {
-        if ($('#inputCheckOut').prop('checked')) {
+        if ($("#inputCheckOut").prop("checked")) {
             $("#date").fadeIn(400);
             $("#checkoutName").fadeIn(400);
         } else {
@@ -19,7 +19,7 @@ $(document).ready(function () {
     $(".form-add").submit(function (e) {
         e.preventDefault();
         
-        var url = $(this).prop('action'),
+        var url = $(this).prop("action"),
             name = $("#inputName").val(),
             amount = $("#inputAmount option:selected").val(),
             brand = $("#inputBrand").val(),
@@ -49,14 +49,14 @@ $(document).ready(function () {
                 inputStatusOther: statusOther ? statusOther : null,
                 csrf_token: csrf_token,
                 inputSerial: serial ? serial : null,
-                inputCheckOut: checkout ? 'on' : undefined,
+                inputCheckOut: checkout ? "on" : undefined,
                 inputDate: check_date ? check_date : null,
                 inputCheckOutName: check_name ? check_name : null
             },
             success: function (v) {
                 if (v.success) {
-                    $("#modalContainer").removeAttr('style');
-                    $(':input','#addGear').not(':button, :submit, :reset, :hidden, select').val('').removeAttr('checked');
+                    $("#modalContainer").removeAttr("style");
+                    $(":input","#addGear").not(":button, :submit, :reset, :hidden, select").val("").removeAttr("checked");
                     $("#date").fadeOut(400);
                     $("#checkoutName").fadeOut(400);
                     $("#successModal").modal("show");

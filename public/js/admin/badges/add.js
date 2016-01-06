@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    $('#add-req').click(function () {
-        var clonedInput = $('#inputReq').clone(),
-            clonedLabel = $("label[for='inputReq']").clone(),
-            count = $(this).parent().next('.req').children("input").lenght + 1;
+    $("#add-req").click(function () {
+        var clonedInput = $("#inputReq").clone(),
+            clonedLabel = $("label[for="inputReq"]").clone(),
+            count = $(this).parent().next(".req").children("input").lenght + 1;
 
             alert(count);
 
@@ -10,7 +10,7 @@ $(document).ready(function () {
 
         //$(this) = $(this).parent;
 
-        $(this).parent().next('.req').append(clonedInput);
+        $(this).parent().next(".req").append(clonedInput);
 
     });
 });
