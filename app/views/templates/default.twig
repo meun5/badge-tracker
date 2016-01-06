@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url.base }}/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="css/cover.css" rel="stylesheet" type="text/css">
 
     {% if auth == null and url.current != '/login' and url.current != '/register' %}
-    <link href="{{ url.base }}/css/default.css" rel="stylesheet" type="text/css">
+    <link href="css/default.css" rel="stylesheet" type="text/css">
     {% endif %}
 
     {% block styles %}{% endblock %}
@@ -88,11 +88,11 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ url.base }}/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
 
     {% if auth == null and url.current != '/login' and url.current != '/register' %}
-    <script src="{{ url.base }}/js/ajax-login.js" class="ajax-login" type="text/javascript" data-url="{{ url.base }}"></script>
-    <script type="text/javascript" src="{{ url.base }}/js/form.js"></script>
+    <script src="js/ajax-login.js" class="ajax-login" type="text/javascript" data-url="{{ url.base }}"></script>
+    <script type="text/javascript" src="js/form.js"></script>
     {% endif %}
 
     {% block scripts %}{% endblock %}
