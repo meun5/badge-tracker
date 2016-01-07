@@ -17,11 +17,6 @@ $RECYCLE.BIN/
 # Composer Install Files
 vendor
 
-# Image Files
-*.jpeg
-*.png
-*.jpg
-
 # Local Config Files
 app/config/local.php
 
