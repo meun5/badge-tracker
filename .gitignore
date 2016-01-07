@@ -23,7 +23,7 @@ vendor
 *.jpg
 
 # Local Config Files
-local.php
+app/config/*
 
 # Windows shortcuts
 *.lnk
