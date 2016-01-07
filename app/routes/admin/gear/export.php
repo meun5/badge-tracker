@@ -60,7 +60,7 @@ $app->get("/admin/download/report", $admin(), function () use ($app) {
     $excel = unserialize($_SESSION[$app->config->get("excel.cache_session")]);
     $app->response->headers->set("Set-Cookie", "fileDownload=true; path=/");
     $app->response->headers->set("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-    $app->response->headers->set("Content-Disposition", "attachment;filename="Report.xlsx"");
+    $app->response->headers->set("Content-Disposition", "attachment;filename=\"Report.xlsx\"");
     $app->response->headers->set("Cache-Control", "max-age=0");
 
     $objWriter = PHPExcel_IOFactory::createWriter($excel, "Excel2007");
