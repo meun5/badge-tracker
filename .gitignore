@@ -23,7 +23,7 @@ vendor
 *.jpg
 
 # Local Config Files
-app/config/*
+app/config/local.php
 
 # Deprecated Files
 deprecated
