@@ -25,6 +25,9 @@ vendor
 # Local Config Files
 app/config/*
 
+# Deprecated Files
+deprecated
+
 # Windows shortcuts
 *.lnk
 

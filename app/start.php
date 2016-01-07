@@ -13,8 +13,6 @@ use app\Helpers\Excel;
 use app\Validation\Validator;
 
 use app\User\User;
-use app\Scouts\Scouts;
-use app\Metadata\Metadata;
 use app\Gear\Gear;
 use app\Events\Event;
 use app\Mail\Mailer;
@@ -54,14 +52,6 @@ require "routes.php";
 
 $app->container->set("user", function () {
     return new User;
-});
-
-$app->container->set("scouts", function () {
-    return new Scouts;
-});
-
-$app->container->set("metadata", function () {
-    return new Metadata;
 });
 
 $app->container->set("gear", function () {
