@@ -3,7 +3,6 @@
 namespace app\Validation;
 
 use Violin\Violin;
-
 use app\User\User;
 use app\Helpers\Hash;
 

@@ -38,7 +38,6 @@ $app->post("/register", $guest(), function () use ($app) {
     ]);
 
     if ($v->passes()) {
-
         $user = $app->user->create([
             "email" => $email,
             "username" => $username,

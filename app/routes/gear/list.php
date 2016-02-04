@@ -15,7 +15,9 @@ $app->get("/gear/list", function () use ($app) {
 })->name("gear.list");
 
 $app->post("/gear/list", function () use ($app) {
-    if(isset($_SESSION[$app->config->get("checkout.session")])) { unset($_SESSION[$app->config->get("checkout.session")]); }
+    if (isset($_SESSION[$app->config->get("checkout.session")])) {
+        unset($_SESSION[$app->config->get("checkout.session")]);
+    }
 
     $post = $app->request->post();
 
