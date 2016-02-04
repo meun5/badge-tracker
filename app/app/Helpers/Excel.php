@@ -140,7 +140,7 @@ class Excel
 
         $headerStyle = [
             "borders" => [
-                "bottom"	=> [
+                "bottom"    => [
                     "style" => \PHPExcel_Style_Border::BORDER_THIN,
                     "color" => [
                         "rgb" => "000000"

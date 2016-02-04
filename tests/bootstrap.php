@@ -7,10 +7,8 @@ ini_set("display_startup_errors", 1);
 date_default_timezone_set("UTC");
 
 use There4\Slim\Test\WebTestCase;
-
 use Slim\Slim;
 use Slim\Views\Twig;
-
 use Noodlehaus\Config;
 
 session_cache_limiter(false);
@@ -21,8 +19,10 @@ define("INC_ROOT", dirname(__DIR__));
 require INC_ROOT . "/vendor/autoload.php";
 
 // Initialize our own copy of the slim application
-class LocalWebTestCase extends WebTestCase {
-    public function getSlimInstance() {
+class LocalWebTestCase extends WebTestCase
+{
+    public function getSlimInstance()
+    {
         $app = new Slim([
             "mode" => "test",
             "view" => new Twig(),
@@ -35,7 +35,7 @@ class LocalWebTestCase extends WebTestCase {
 
       // Include our core application file
       require "app/app.php";
-      return $app;
+        return $app;
     }
 };
 

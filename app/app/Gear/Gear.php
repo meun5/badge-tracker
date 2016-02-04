@@ -19,7 +19,8 @@ class Gear extends Eloquent
         "checkout_history",
     ];
 
-    public function getAll() {
+    public function getAll()
+    {
         return $this->where("enabled", true)->get();
     }
 
