@@ -3,20 +3,15 @@
 use Slim\Slim;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
-
 use Noodlehaus\Config;
-
 use RandomLib\Factory as RandomLib;
-
 use app\Helpers\Hash;
 use app\Helpers\Excel;
 use app\Validation\Validator;
-
 use app\User\User;
 use app\Gear\Gear;
 use app\Events\Event;
 use app\Mail\Mailer;
-
 use app\MiddleWare\BeforeMiddleWare;
 use app\MiddleWare\CsrfMiddleWare;
 
