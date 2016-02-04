@@ -12,7 +12,11 @@ class RoutesTest extends LocalWebTestCase
      */
     public function testSetup()
     {
-        if ($this->setUpDatabase()) { $this->assertTrue(true); } else { $this->assertFalse(true); }
+        if ($this->setUpDatabase()) {
+            $this->assertTrue(true);
+        } else {
+            $this->assertFalse(true);
+        }
     }
 
     /**
@@ -56,7 +60,13 @@ class RoutesTest extends LocalWebTestCase
             "active" => true,
         ]);
 
-        if (!is_null($user) && !is_null($gear)) {echo  "Database Setup Complete."; return true;} else {echo "Database Setup Failed."; return false;}
+        if (!is_null($user) && !is_null($gear)) {
+            echo  "Database Setup Complete.";
+            return true;
+        } else {
+            echo "Database Setup Failed.";
+            return false;
+        }
     }
 }
 
