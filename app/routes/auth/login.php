@@ -70,7 +70,6 @@ $app->post("/login", $guest(), function () use ($app) {
                 return;
             }
             return $app->response->redirect($app->urlFor("home"));
-
         } else {
             if ($app->request->isAjax()) {
                 echo json_encode([

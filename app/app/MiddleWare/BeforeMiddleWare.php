@@ -40,7 +40,7 @@ class BeforeMiddleWare extends Middleware
                 "version" => $this->info["version"],
                 "name" => $this->info["name"],
                 "author" => $this->info["author"],
-            ],         
+            ],
         ]);
     }
 
