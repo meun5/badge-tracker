@@ -1,9 +1,0 @@
-<div class="col-sm-3 col-md-2 sidebar">
-  <ul class="nav nav-sidebar">
-    <li {% if url.current == '/admin' %} class="active" {% endif %}><a href="#">Overview</a></li>
-    <li {% if '/admin/export' in url.current %} class="active" {% endif %}><a href="{{ urlFor('admin.gear.export') }}">Export</a></li>
-  </ul>
-  <ul class="nav nav-sidebar">
-    <li {% if '/admin/gear' in url.current %} class="active" {% endif %}><a href="{{ urlFor('admin.gear.add') }}">Add Gear</a></li>
-  </ul>
-</div>
