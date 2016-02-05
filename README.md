@@ -11,6 +11,10 @@ This is the "lite" version of the gear tracking system. The full version is stil
 4. Edit the config to your liking.
 5. Enjoy!
 
+## License
+The software included in this project is licensed under the [GNU GPL v2] (https://raw.githubusercontent.com/meun5/badge-tracker/v3-lite/LICENSE) license.  
+Any other artwork, graphics, or logos are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License] (http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
 ## Contributing
 ### Want to contribute? Great, but first there are some rules that must be followed
 1. All pull requests must be compliant with PSR-2.
