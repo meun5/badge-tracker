@@ -1,0 +1,39 @@
+body {
+    font-family: $body-font-family;
+    background-color: $ad-body-bg-color;
+    color: $ad-body-text-color;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+@media (min-width: 768px) {
+    body {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+.nav > .nav-header {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 5px;
+  font-size: 85%;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #51586a;
+  text-transform: uppercase;
+}
+.nav > li + .nav-header {
+  margin-top: 20px;
+}
+.nav > li.active > a, .nav > li.active > a:hover, .nav > li.active > a:focus {
+    color: #252830;
+    background-color: #1CA8DD;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #434857;
+    color: #FFF;
+}
+.nav > li > a {
+    color: #CFD2DA;
+}

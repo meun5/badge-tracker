@@ -1,0 +1,36 @@
+/**
+ * Globals
+ */
+/**
+ * Colors
+ */
+/**
+ * Admin Globals
+ */
+a#welcome {
+  color: #fff; }
+
+body {
+  padding-top: 55px;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #edeff0;
+  color: #222;
+  line-height: 150%;
+  margin: 0;
+  text-align: center; }
+
+a {
+  color: #000;
+  font-weight: 600; }
+
+footer.main {
+  text-align: center;
+  bottom: 0;
+  height: 75px;
+  position: absolute;
+  width: 100%; }
+
+h5 {
+  margin: 5px auto; }
+
+/*# sourceMappingURL=app.css.map */

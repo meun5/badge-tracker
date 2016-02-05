@@ -17,16 +17,14 @@ $RECYCLE.BIN/
 # Composer Install Files
 vendor
 
-# Image Files
-*.jpeg
-*.png
-*.jpg
+# Typings Install Files
+typings
 
 # Local Config Files
-app/config/*
+config/*
 
-# Deprecated Files
-deprecated
+# Local Log Files
+logs/*
 
 # Windows shortcuts
 *.lnk

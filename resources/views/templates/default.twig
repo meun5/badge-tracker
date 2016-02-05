@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="" name="description">
+        <meta content="" name="author">
+        
+        <link href="/favicon.ico" rel="icon">
+        
+        <title>Home</title>
+        
+        
+        <!-- Bootstrap CDN CSS -->
+            <!-- Bootstrap CSS -->
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+        
+            <!-- IE10 viewport workaround for Surface/desktop Windows 8 bug -->
+            <link href="https://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet" integrity="sha256-MYS0aFl3SFCQOcQLbZm9BtDc9QhwV/mFlv9gC2Jm0OM= sha512-+nNUJAi/QrXPEOdkisBCbsRbJu5IEcyIVXuVzFfiSYkyMwPgSKIxVLlt03fOQqeOpqkVgBRmDcQ3Njb3jlLgRg==" crossorigin="anonymous">
+        
+        <!-- Application Specific CSS -->
+            {% if "/admin" not in url.current %}
+                <link href="/objects/css/app.css" rel="stylesheet">
+            {% elseif "/admin" in url.current %}
+                <link rel="stylesheet" href="/objects/css/admin.css">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            {% endif %}
+            <!--integrity="sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU= sha512-z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXcg/SpIdNs6c5H0NE8XYXysP+DGNKHfuwvY7kxvUdBeoGlODJ6+SfaPg==" crossorgin="anonymous"-->
+            
+            {% block styles %}{% endblock %}
+    </head>
+    <body>
+        {% if "/admin" not in url.current %}
+            {% include "templates/nav.twig" %}
+        {% endif %}
+        <div class="container">
+            {% if "/admin" in url.current %}
+                {% include "templates/admin/sidebar.twig" %}
+                <div class="main col-lg-9">
+            {% endif %}
+                    {% block content %} {% endblock %}
+            {% if "/admin" in url.current %}
+                </div>
+            {% endif %}
+        </div>
+        {% include "templates/footer.twig" %}
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js" integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw= sha512-Pcrh/26Yxk41hr4+sU3UhsUffU6fobj5pii+T7tqmrVi8x+bUOFtLgxyuUK9voTu6ODvh/pzDbFCixmaWdiCMg==" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+        <script src="https://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js" integrity="sha256-9mP9XVaY4EqOVt5gwTxUq8tpQ63LIcPV6Ahm0O2gYE0= sha512-vnTE2sqcz/H8Y/uZUO5/hyKNzrv8PlJn/3jrvXD0fkpZeJVHez/EDQMt/PO85l4AS7kX43yMuxILhoCOwN2Ijw==" crossorigin="anonymous"></script>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

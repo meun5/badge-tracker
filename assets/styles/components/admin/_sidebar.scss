@@ -1,0 +1,12 @@
+.sidebar {
+    margin-right: 0px;
+}
+@media (min-width: 768px) {
+    .sidebar {
+        margin-right: 40px;
+    }
+}
+.sidebar-nav {
+	display: block !important;
+	height: auto !important;
+}

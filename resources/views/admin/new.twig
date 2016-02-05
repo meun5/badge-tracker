@@ -1,0 +1,27 @@
+{% extends "templates/default.twig" %}
+
+{% block content %}
+<h1>Add New Tent</h1>
+<form action="{{ path_for('admin.add.tent') }}" class="inline-form" method="post">
+	<div class="form-group">
+		<label class="sr-only" for="owner">Patrol Owner</label>
+		<input type="text" placeholder="Patrol Owner" class="form-control" name="owner">
+	</div>
+	<div class="form-group col-lg-6">
+		<label for="condition" class="sr-only">Tent Condition</label>
+		<input type="text" placeholder="Condition" class="form-control" name="condition">
+	</div>
+	<div class="form-group col-lg-6">
+		<label>
+			<input type="checkbox" placeholder="Patrol Owner" name="checkedout">
+			<span class="label-text">Check</span>
+		</label>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="pull-right btn btn-info">Submit</button>
+	</div>
+	<input type="hidden" name="{{ csrf.keys.csrf_name }}" value="{{ csrf.csrf_name }}">
+    <input type="hidden" name="{{ csrf.keys.csrf_value }}" value="{{ csrf.csrf_value }}">
+</form>
+{% endblock %}
+

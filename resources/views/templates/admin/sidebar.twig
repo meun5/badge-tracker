@@ -1,0 +1,13 @@
+<div class="col-lg-3">
+	<div class="sidebar">
+		<div class="collaspe sidebar-nav">
+		    <ul class="nav nav-pills nav-stacked">
+		        <li class="nav-header">Tent Action</li>
+		        <li {% if path_for('admin.overview') == url.current %}class="active"{% endif %}><a href="{{ path_for('admin.overview') }}">All Tents</a></li>
+		        <li {% if path_for('admin.new.tent') == url.current %}class="active"{% endif %}><a href="{{ path_for('admin.new.tent') }}">Add a new Tent</a></li>
+		        <li><a href="{{ path_for('app.main') }}">Return to Site</a></li>
+		        <li><a href="{{ path_for('auth.logout') }}">Logout</a></li>
+		    </ul>
+		</div>
+	</div>
+</div>
