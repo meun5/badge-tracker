@@ -45,6 +45,7 @@ class TestSetUp
         }
 
         if ($requireDefaultContainer) {
+            $configPath = "config/app.php";
             require_once("app/container.php");
         }
 
