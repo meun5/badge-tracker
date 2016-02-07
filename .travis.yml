@@ -5,12 +5,9 @@ php:
   - hhvm
   - nightly
 
-before_script:
-  - composer self-update
-
 install:
-  - composer install
-  - ls
+  - composer self-update
+  - composer install --prefer-source
   
 script:
   - phpunit --bootstrap tests/bootstrap.php testRoutes tests/Route/RouteTest.php
