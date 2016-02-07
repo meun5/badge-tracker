@@ -40,20 +40,19 @@ class TestSetUp
      */
     public function __construct($linkroutes = true, $requireDefaultContainer = true, Container $container = null, $config = [])
     {
-        chdir(__DIR__);
         if (is_null($container)) {
             $container = new Container(array_merge(self::$configDefaults, $config));
         }
 
         if ($requireDefaultContainer) {
-            require_once("../app/container.php");
+            require_once("app/container.php");
         }
 
         $this->app = new App($container);
 
         if ($requireDefaultContainer) {
             $app = $this->app;
-            require_once("../app/postContainer.php");
+            require_once("app/postContainer.php");
         }
 
         if ($linkroutes) {
@@ -63,7 +62,7 @@ class TestSetUp
 
     public function linkDB()
     {
-        require_once("../app/database.php");
+        require_once("app/database.php");
     }
 
     public function addRoute($path)
