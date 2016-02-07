@@ -1,7 +1,7 @@
 <?php
 
 $container["config"] = function ($c) {
-    return new \Noodlehaus\Config("../config/app.php");
+    return new \Noodlehaus\Config($configPath);
 };
 
 $container["view"] = function ($c) {
