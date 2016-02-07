@@ -1,7 +1,9 @@
 # badge-tracker v3
-A small merit badge tracking system written in PHP
 [![Build Status](https://travis-ci.org/meun5/badge-tracker.svg?branch=master)](https://travis-ci.org/meun5/badge-tracker)
 [![StyleCI](https://styleci.io/repos/41837448/shield)](https://styleci.io/repos/41837448)
+
+A small merit badge tracking system written in PHP
+
 This is the "lite" version of the gear tracking system. The full version is still currently under development.
 
 ## Install
