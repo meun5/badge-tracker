@@ -8,6 +8,7 @@ ini_set("session.use_cookies", 0);
 
 // Enable Composer autoloader
 /** @var \Composer\Autoload\ClassLoader $autoloader */
-$autoloader = require_once("/vendor/autoload.php");
+set_include_path(get_include_path() . PATH_SEPARATOR . dirname("../"));
+$autoloader = require_once("vendor/autoload.php");
 // Register test classes
 $autoloader->addPsr4("App\Tests\\", __DIR__);

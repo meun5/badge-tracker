@@ -14,12 +14,12 @@ use BadMethodCallException;
 
 class TestSetUp
 {
-	public static $configDefaults = [
-	    "settings" => [
-	        "displayErrorDetails" => true,
-	        "determineRouteBeforeAppMiddleware" => true,
-	    ]
-	];
+    public static $configDefaults = [
+        "settings" => [
+            "displayErrorDetails" => true,
+            "determineRouteBeforeAppMiddleware" => true,
+        ]
+    ];
 
     /** @var \Slim\App */
     public $app;
@@ -40,47 +40,47 @@ class TestSetUp
      */
     public function __construct($linkroutes = true, $requireDefaultContainer = true, Container $container = null, $config = [])
     {
-    	chdir(__DIR__);
-    	if (is_null($container)) {
-    		$container = new Container(array_merge(self::$configDefaults, $config));
-    	}
+        if (is_null($container)) {
+            $container = new Container(array_merge(self::$configDefaults, $config));
+        }
 
-    	if ($requireDefaultContainer) {
-    		require_once("../app/container.php");
-    	}
+        if ($requireDefaultContainer) {
+            $configPath = "config/app.php";
+            require_once("app/container.php");
+        }
 
         $this->app = new App($container);
 
         if ($requireDefaultContainer) {
-        	$app = $this->app;
-        	require_once("../app/postContainer.php");
+            $app = $this->app;
+            require_once("app/postContainer.php");
         }
 
         if ($linkroutes) {
-    		$this->addRoute(true);
-    	}
+            $this->addRoute(true);
+        }
     }
 
     public function linkDB()
     {
-    	require_once("../app/database.php");
+        require_once("app/database.php");
     }
 
     public function addRoute($path)
     {
-    	$app = $this->app;
-    	if ($path === true) {
-    		$iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator("../resources/routes"));
-			foreach ($iterator as $file) {
-			    $fname = $file->getFilename();
-			    if (preg_match("%\.php$%", $fname)) {
-			        require_once($file->getPathname());
-			    }
-			}
-			return true;
-    	}
-    	require_once($path);
-    	return true;
+        $app = $this->app;
+        if ($path === true) {
+            $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator("../resources/routes"));
+            foreach ($iterator as $file) {
+                $fname = $file->getFilename();
+                if (preg_match("%\.php$%", $fname)) {
+                    require_once($file->getPathname());
+                }
+            }
+            return true;
+        }
+        require_once($path);
+        return true;
     }
 
     public function __call($method, $arguments)
@@ -107,31 +107,31 @@ class TestSetUp
      * @param      string  $method  The HTTP Method to use
      * @param      array   $data    Additional Data to pass as a part of the query
      */
-	protected function dispatch($path, $method = "GET", $data = [])
-	{
-	    // Prepare a mock environment
-	    $env = Environment::mock([
-	        'REQUEST_URI' => $path,
-	        'REQUEST_METHOD' => $method,
-	    ]);
+    protected function dispatch($path, $method = "GET", $data = [])
+    {
+        // Prepare a mock environment
+        $env = Environment::mock([
+            'REQUEST_URI' => $path,
+            'REQUEST_METHOD' => $method,
+        ]);
 
-	    // Prepare request and response objects
-	    $uri = Uri::createFromEnvironment($env);
-	    $headers = Headers::createFromEnvironment($env);
-	    $cookies = [];
-	    $serverParams = $env->all();
-	    $body = new RequestBody();
+        // Prepare request and response objects
+        $uri = Uri::createFromEnvironment($env);
+        $headers = Headers::createFromEnvironment($env);
+        $cookies = [];
+        $serverParams = $env->all();
+        $body = new RequestBody();
 
-	    // Create the request object, and set params
-	    $req = new Request($method, $uri, $headers, $cookies, $serverParams, $body);
-	    if (!empty($data)) {
-	        $req = $req->withParsedBody($data);
-	    }
+        // Create the request object, and set params
+        $req = new Request($method, $uri, $headers, $cookies, $serverParams, $body);
+        if (!empty($data)) {
+            $req = $req->withParsedBody($data);
+        }
 
-	    $res = new Response();
+        $res = new Response();
 
-	    $this->headers = $headers;
-	    $this->request = $req;
-	    $this->response = call_user_func_array($this->app, [$req, $res]);
-	}
+        $this->headers = $headers;
+        $this->request = $req;
+        $this->response = call_user_func_array($this->app, [$req, $res]);
+    }
 }

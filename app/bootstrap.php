@@ -13,6 +13,8 @@ $configuration = [
 
 $container = new \Slim\Container($configuration);
 
+$configPath = "../config/app.php";
+
 require_once("container.php");
 
 $app = new \Slim\App($container);
