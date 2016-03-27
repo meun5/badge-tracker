@@ -23,7 +23,7 @@ require INC_ROOT . "/app/routes/admin/gear/export.php";
 require INC_ROOT . "/app/routes/admin/site/settings.php";
 
 //Event Managment
-require INC_ROOT . "/app/routes/admin/events/add.php";
+//require INC_ROOT . "/app/routes/admin/events/add.php";
 
 //Event Display
-require INC_ROOT . "/app/routes/events/event.php";
+//require INC_ROOT . "/app/routes/events/event.php";

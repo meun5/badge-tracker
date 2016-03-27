@@ -11,7 +11,7 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li {% if '/events' in url.current %}class="active" {% endif %}><a href="{{ urlFor("events.display") }}">Events</a></li>
+        {#<li {% if '/events' in url.current %}class="active" {% endif %}><a href="{{ urlFor("events.display") }}">Events</a></li>#}
         <li {% if '/gear' in url.current %}class="active" {% endif %}><a href="{{ urlFor("gear.list") }}">Gear Checkout</a></li>
         <li {% if '/counslers' in url.current %}class="active" {% endif %}><a href="#">Counslers</a></li>
         {% if auth %}<li><a href="{{ urlFor('admin.home') }}">Administration</a></li>
