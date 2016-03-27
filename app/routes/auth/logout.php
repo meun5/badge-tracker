@@ -10,7 +10,7 @@
  * @version     0.1.0
  */
 
-$app->get( "/logout", $authenticated(), function () use ($app) {
+$app->get("/logout", $authenticated(), function () use ($app) {
     unset($_SESSION[$app->config->get("auth.session")]);
 
     if ($app->getCookie($app->config->get("auth.remember"))) {

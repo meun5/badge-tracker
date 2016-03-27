@@ -2,17 +2,13 @@
 
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
-
 use RandomLib\Factory as RandomLib;
-
 use app\Helpers\Hash;
 use app\Validation\Validator;
-
 use app\User\User;
 use app\Scouts\Scouts;
 use app\Metadata\Metadata;
 use app\Gear\Gear;
-
 use app\MiddleWare\BeforeMiddleWare;
 use app\MiddleWare\CsrfMiddleWare;
 
